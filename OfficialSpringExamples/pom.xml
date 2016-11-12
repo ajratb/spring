@@ -68,5 +68,5 @@
             <url>http://repo.spring.io/milestone</url>
         </pluginRepository>
     </pluginRepositories>
-    <name>Examples from Official Spring</name>
+    <name>Official Spring Examples</name>
 </project>
