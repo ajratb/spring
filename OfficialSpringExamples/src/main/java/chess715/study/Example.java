@@ -10,6 +10,7 @@ package chess715.study;
  * http://projects.spring.io/spring-boot/
  * и здесь:
  * http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#getting-started-introducing-spring-boot
+ * (11. Developing your first Spring Boot application)
  * @author ayrat
  */
 import org.springframework.boot.*;
@@ -24,16 +25,18 @@ public class Example {
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Как жэ это работает?!";
+        return "Ты во втором приложении, работающем на порту 8082. \nДобавь "
+                + "\"/next\" к запросу, "
+                + "чтобы увидеть следующее сообщение";
     }
     
     @RequestMapping("/next")    
     String next() {
-        return "это работает! (только не забудь /next)";
+        return "Все работает! Первое приложение на порту 8081";
     }
 
-//    public static void main(String[] args) throws Exception {
-//        SpringApplication.run(Example.class, args);
-//    }
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Example.class, args);
+    }
 
 }
