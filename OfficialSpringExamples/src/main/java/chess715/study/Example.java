@@ -20,19 +20,20 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @EnableAutoConfiguration
+@SpringBootApplication
 public class Example {
 
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "Ты во втором приложении, работающем на порту 8082. \nДобавь "
+        return "Ты в первом приложении, работающем на порту 8081. \nДобавь "
                 + "\"/next\" к запросу, "
                 + "чтобы увидеть следующее сообщение";
     }
     
     @RequestMapping("/next")    
     String next() {
-        return "Все работает! Первое приложение на порту 8081";
+        return "Все работает! Второе приложение на порту 8082";
     }
 
     public static void main(String[] args) throws Exception {
