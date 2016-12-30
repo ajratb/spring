@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @EnableAutoConfiguration
+@SpringBootApplication
 public class Example {
 
     @RequestMapping("/")
@@ -32,8 +33,8 @@ public class Example {
         return "это работает! (только не забудь /next)";
     }
 
-//    public static void main(String[] args) throws Exception {
-//        SpringApplication.run(Example.class, args);
-//    }
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Example.class, args);
+    }
 
 }
