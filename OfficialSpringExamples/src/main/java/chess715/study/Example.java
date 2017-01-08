@@ -35,8 +35,8 @@ public class Example {
         return "Все работает! Первое приложение на порту 8081";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Example.class, args);
-    }
+//    public static void main(String[] args) throws Exception {
+//        SpringApplication.run(Example.class, args);
+//    }
 
 }
