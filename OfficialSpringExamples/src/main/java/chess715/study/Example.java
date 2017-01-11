@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @EnableAutoConfiguration
-@SpringBootApplication
+@SpringBootApplication//!
 public class Example {
 
     @RequestMapping("/")
