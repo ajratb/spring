@@ -35,20 +35,19 @@ http://www.springframework.org/schema/context/spring-context-3.2.xsd">-->
         <constructor-arg value="John Smith"/>
     </bean>
     <bean id="eventLogger" class="ru.waytosky.spring.ConsoleEventLogger"/>
-        <bean id="fileLogger" class="ru.waytosky.spring.FileEventLogger"
+    <bean id="fileLogger" class="ru.waytosky.spring.FileEventLogger"
               init-method="init">
-            <constructor-arg value="log.txt"/>
-        </bean>
+        <constructor-arg value="./src/main/resources/log.txt"/>
+    </bean>
     
     <bean id="cacheFileLogger" 
-          class="ru.waytosky.spring.CacheFileEventLogger"
-    
+          class="ru.waytosky.spring.CacheFileEventLogger"    
           parent="fileLogger"  
           destroy-method="destroy">
         <constructor-arg value="10"/>
     </bean><!--init-method="init"-->   
     <bean id="app" class="ru.waytosky.spring.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="fileLogger"/>
     </bean>
 </beans>
