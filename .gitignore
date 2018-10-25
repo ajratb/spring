@@ -1,9 +1,3 @@
-/00 Tutorialspoint/build/
-/00 Tutorialspoint/nbproject/private/
-/01 Tutorialspoint -Injection-/build/
-/01 Tutorialspoint -Injection-/nbproject/private/
-/04 Tutorialspoint -AOP-/build/
-/04 Tutorialspoint -AOP-/nbproject/private/
 /SpringWebMVC/SpringWebMVC/build/
 /SpringWebMVC/SpringWebMVC/dist/
 /SpringWebMVC/SpringWebMVC/nbproject/private/
@@ -15,10 +9,6 @@
 /SpringWebMVC/Examples  from Official Spring/target/
 /SpringWebMVC/OfficialSpringExamples/target/
 /OfficialSpringExamples/target/
-/GUIDES/AccessingDataWithJPA/.nb-gradle/
-/GUIDES/AccessingDataWithJPA/build/
-/GUIDES/ManagingTransactions/.nb-gradle/
-/GUIDES/ManagingTransactionsMaven/target/
 /SpringWebMVC NetbeansExample/nbproject/private/
 /SpringWebMVC/SpringWebMVC NetbeansExample/nbproject/private/
 /SpringWebMVC_old/NewNetBeansSpringMVC/nbproject/private/
@@ -27,7 +17,5 @@
 /SpringWebMVC_old/StepByStep/nbproject/private/
 /SpringWebMVC_old/TutorialsPointSpringMVC/build/
 /SpringWebMVC_old/TutorialsPointSpringMVC/nbproject/private/
-/Tkach/spring-tkach/target/
-/GUIDES/SOAPServiceMaven/target/
-/01 Tutorialspoint -Injection-/dist/
-/04 Tutorialspoint -AOP-/dist/
+
+
