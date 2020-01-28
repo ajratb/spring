@@ -1,21 +1,17 @@
-/SpringWebMVC/SpringWebMVC/build/
-/SpringWebMVC/SpringWebMVC/dist/
-/SpringWebMVC/SpringWebMVC/nbproject/private/
-/SpringWebMVC/StepByStep/build/
-/SpringWebMVC/StepByStep/nbproject/private/
-/SpringWebMVC/TutorialsPointSpringMVC/nbproject/private/
-/SpringWebMVC/TutorialsPointSpringMVC/build/
-/SpringWebMVC/NewNetBeansSpringMVC/nbproject/private/
-/SpringWebMVC/Examples  from Official Spring/target/
-/SpringWebMVC/OfficialSpringExamples/target/
-/OfficialSpringExamples/target/
-/SpringWebMVC NetbeansExample/nbproject/private/
-/SpringWebMVC/SpringWebMVC NetbeansExample/nbproject/private/
-/SpringWebMVC_old/NewNetBeansSpringMVC/nbproject/private/
-/SpringWebMVC_old/SpringWebMVC NetbeansExample/nbproject/private/
-/SpringWebMVC_old/StepByStep/build/
-/SpringWebMVC_old/StepByStep/nbproject/private/
-/SpringWebMVC_old/TutorialsPointSpringMVC/build/
-/SpringWebMVC_old/TutorialsPointSpringMVC/nbproject/private/
+# Netbeans
+/**/.nb-gradle/
+/**/build/
+/**/nbproject/private/
+/**/dist/
+
+# Maven
+/**/log/
+/**/target/
+
+# Intellij
+/**/.idea/
+*.iml
+*.iws
+
 
 
