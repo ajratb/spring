@@ -1,0 +1,3 @@
+https://github.com/jonashackt/tutorial-soap-spring-boot-cxf
+
+https://blog.codecentric.de/en/2016/02/spring-boot-apache-cxf/

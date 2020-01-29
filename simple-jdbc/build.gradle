@@ -1,7 +1,8 @@
 plugins
 {   
     id 'java'
-//    id 'idea'
+    id 'application'
+    //    id 'idea'
 }
 
 repositories {
@@ -11,8 +12,11 @@ repositories {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+mainClassName='wts.DataAccessApp'
 
 dependencies {
+    compile 'org.springframework:spring-jdbc:5.2.3.RELEASE'
     compile 'org.springframework:spring-context:5.1.1.RELEASE'
+    compile files('jdbc/postgresql-9.4.1209.jar')
     testCompile("junit:junit")
 }
