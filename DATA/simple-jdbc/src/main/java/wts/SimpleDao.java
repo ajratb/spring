@@ -17,6 +17,6 @@ public class SimpleDao {
     }
     
     public int getRowsCount(){
-        return jdbcTemplate.queryForObject("SELECT COUNT(*) - 15 FROM t", Integer.class);
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM courses", Integer.class);
     }
 }

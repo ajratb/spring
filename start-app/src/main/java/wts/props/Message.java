@@ -6,16 +6,15 @@ package wts.props;
  */
 public class Message {
 
-final    String val;
+    final String val;
 
 //    public Message() {
 //    }
-
     public Message(String val) {
         this.val = val;
     }
 
-    String getMsg() {
-        return val;
+    void printMsg() {
+        System.out.println("Message: " + val);
     }
 }

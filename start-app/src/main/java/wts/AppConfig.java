@@ -1,23 +1,19 @@
 package wts;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-
-//import wts.MyService;
 
 @Configuration
-
+@ComponentScan("wts")
 public class AppConfig {
-
-//    @Autowired
-//    private Environment environment;
-
+    
+    
+    
     @Bean
     public MyService myService() {
-        MyService client = new MyService();
-        return client;
+        MyService srv = new MyService();
+        return srv;
     }
 
 }

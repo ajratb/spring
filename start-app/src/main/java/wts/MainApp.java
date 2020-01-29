@@ -10,21 +10,32 @@ public class MainApp {
     @Autowired
     private MyService myService;
 
-    public MainApp() {
-    }
-
-    MainApp(MyService myService) {
-        this.myService = myService;
-    }
-
+//    @Autowired
+//    void setMyService(MyService myService){
+//        this.myService= myService;
+//    }
+//    @Autowired
+//    MainApp(MyService myService) {
+//        this.myService = myService;
+//    }
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-        ctx.register(AppConfig.class);
-        ctx.scan("wts");
-        ctx.refresh();
-        MainApp app = (MainApp)ctx.getBean("mainApp");//mainApp - follow convention!
-        MyService srv = (MyService)ctx.getBean(MyService.class);
+
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // if you don't use ComponentScan("pkg_name") with AppConfig
+        // then use this code:
+        
+//        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();       
+//        ctx.register(AppConfig.class);
+//        ctx.scan("wts");
+//        ctx.refresh();
+
+        MainApp app = (MainApp) ctx.getBean("mainApp");//mainApp - follow convention!
+        //Service as a part mainApp component
         app.myService.printMsg();
-        srv.printMsg("from srv");
+
+        //Service retrieved from configuration
+        MyService srvBean = (MyService) ctx.getBean(MyService.class);
+        srvBean.printMsg("from srv");
     }
 }
