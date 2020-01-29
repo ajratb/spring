@@ -1,6 +1,7 @@
 plugins
 {   
     id 'java'
+    id 'application'
 //    id 'idea'
 }
 
@@ -11,6 +12,7 @@ repositories {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+mainClassName='wts.MainApp'
 
 dependencies {
     compile 'org.springframework:spring-context:5.1.1.RELEASE'

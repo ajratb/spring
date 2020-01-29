@@ -11,8 +11,8 @@ import org.springframework.core.env.Environment;
 
 public class AppConfig {
 
-    @Autowired
-    private Environment environment;
+//    @Autowired
+//    private Environment environment;
 
     @Bean
     public MyService myService() {

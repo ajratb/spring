@@ -20,12 +20,11 @@ public class MainApp {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(AppConfig.class);
-//  wts.MyService srv = new MainApp().myService;
         ctx.scan("wts");
         ctx.refresh();
-        MainApp app = (MainApp) ctx.getBean("mainApp");//mainApp - follow convention!
-        MyService srv = ctx.getBean(MyService.class);
-        srv.printMsg();
-
+        MainApp app = (MainApp)ctx.getBean("mainApp");//mainApp - follow convention!
+        MyService srv = (MyService)ctx.getBean(MyService.class);
+        app.myService.printMsg();
+        srv.printMsg("from srv");
     }
 }

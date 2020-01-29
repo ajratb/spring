@@ -1,7 +1,6 @@
 package wts;
 
 import javax.sql.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +17,6 @@ public class SimpleDao {
     }
     
     public int getRowsCount(){
-        return jdbcTemplate.queryForObject("SELECT COUNT(*) - 89 FROM t", Integer.class);
+        return jdbcTemplate.queryForObject("SELECT COUNT(*) - 15 FROM t", Integer.class);
     }
 }
