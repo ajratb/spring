@@ -1,4 +1,4 @@
-package ru.wts.sbootdatajdbc;
+package ru.wts.sboot.data.jdbc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

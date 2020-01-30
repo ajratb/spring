@@ -19,6 +19,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
         compile files('jdbc/postgresql-9.4.1209.jar')
+//        runtimeOnly 'com.h2database:h2'
 }
 
 test {

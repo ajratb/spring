@@ -1,21 +1,14 @@
 package wts;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
-
-//import wts.MyService;
 
 @Configuration
 @ComponentScan("wts")
 public class SpringJdbcConfig {
-
-//    @Autowired
-//    private Environment environment;
 
    @Bean
     public DataSource pgDataSource() {
@@ -23,8 +16,8 @@ public class SpringJdbcConfig {
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
         dataSource.setUsername("dev");
-        dataSource.setPassword("star");
- 
+        //CHECK IF IT DEPENDS ON pg_hba.conf 
+//        dataSource.setPassword("str");
         return dataSource;
     }
 
