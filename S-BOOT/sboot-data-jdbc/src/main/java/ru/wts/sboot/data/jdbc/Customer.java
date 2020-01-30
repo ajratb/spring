@@ -1,3 +1,5 @@
+package ru.wts.sboot.data.jdbc;
+
 
 /**
  *
