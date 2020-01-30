@@ -16,8 +16,8 @@ public class SpringJdbcConfig {
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
         dataSource.setUsername("dev");
-        //CHECK IF IT DEPENDS ON pg_hba.conf 
-//        dataSource.setPassword("str");
+        //CHECK IF IT DEPENDS ON pg_hba.conf or maybe because dev is superuser
+        dataSource.setPassword("star");
         return dataSource;
     }
 

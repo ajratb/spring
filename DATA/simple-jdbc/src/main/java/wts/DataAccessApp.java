@@ -10,8 +10,8 @@ public class DataAccessApp{
 //     @Autowired
 //     JdbcTemplate jdbcTemplate;
 
-    public DataAccessApp() {
-    }
+//    public DataAccessApp() {
+//    }
 
 //    DataAccessApp(MyService myService) {
 //        this.myService = myService;
