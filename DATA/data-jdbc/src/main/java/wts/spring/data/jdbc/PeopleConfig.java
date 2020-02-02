@@ -1,28 +1,41 @@
-package wts.spring.jdbc;
+package wts.spring.data.jdbc;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration;
+import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
+//import org.springframework.data.jdbc.repository.config.JdbcRepositoryConfigExtension;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@ComponentScan("wts.spring.jdbc")
+@EnableJdbcRepositories
 @PropertySource("classpath:db.properties")
-public class JdbcConfig {
+public class PeopleConfig extends AbstractJdbcConfiguration{ //?JdbcRepositoryConfigExtension {
 
     @Autowired
     Environment environment;
-
     private final String URL = "url";
     private final String USER = "dbuser";
     private final String DRIVER = "driver";
     private final String PASSWORD = "dbpassword";
+
+    @Bean
+    NamedParameterJdbcOperations operations() {
+        return new NamedParameterJdbcTemplate(pgDataSource());
+    }
+
+    @Bean
+    PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(pgDataSource());
+    }
 
     @Bean
     public DataSource pgDataSource() {
@@ -34,13 +47,13 @@ public class JdbcConfig {
         dataSource.setPassword(environment.getProperty(PASSWORD));
         return dataSource;
     }
-    
-//    @Bean
-//    public DataSource dataSource() {
-//        return new EmbeddedDatabaseBuilder()
-//                .setType(EmbeddedDatabaseType.H2)
-//                .addScript("classpath:jdbc/schema.sql")
-//                .addScript("classpath:jdbc/test-data.sql").build();
-//    }
 
+//    @Bean
+//    DataSource dataSource(){
+//        return new EmbeddedDatabaseBuilder()
+//                .generateUniqueName(true)
+//                .setType(EmbeddedDatabaseType.HSQL)
+//                .addScript("create-customer-schema.sql")
+//                .build();
+//    }
 }
