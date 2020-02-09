@@ -4,16 +4,15 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan("wts.spring.jdbc")
+@EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 public class JdbcConfig {
 
@@ -30,7 +29,7 @@ public class JdbcConfig {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName(environment.getProperty(DRIVER));
         
-        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/devdb");//?loggerLevel=TRACE&loggerFile=pgjdbc.log");
+        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/devdb?loggerLevel=TRACE");//&loggerFile=pgjdbc.log");
         
         dataSource.setUsername("dev");
         //CHECK IF IT DEPENDS ON pg_hba.conf 
