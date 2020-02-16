@@ -21,8 +21,10 @@ public class PersonDaoImpl implements PersonDao {
     private final String SQL_DELETE_PERSON = "delete from people where id = ?";
     private final String SQL_UPDATE_PERSON = "update people set first_name = ?, last_name = ?, age  = ? where id = ?";
     private final String SQL_GET_ALL = "select * from people";
-    private final String SQL_INSERT_PERSON = "insert into people(id, first_name, last_name, age) values(?,?,?,?)";
-
+    
+    //private final String SQL_INSERT_PERSON = "insert into people(id, first_name, last_name, age) values(?,?,?,?)";
+    private final String SQL_INSERT_PERSON = "insert into people(first_name, last_name, age, range) values(?,?,?,?)";
+    
     @Autowired
     public PersonDaoImpl(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
@@ -47,11 +49,18 @@ public class PersonDaoImpl implements PersonDao {
         return jdbcTemplate.update(SQL_UPDATE_PERSON, person.getFirstName(), person.getLastName(), person.getAge(),
                 person.getId()) > 0;
     }
-
-    @Override
+    
+// if id is not serial
+//    @Override
+//    public boolean createPerson(Person person) {
+//        return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFirstName(), person.getLastName(),
+//                person.getAge()) > 0;
+//    }
+    
+     @Override
     public boolean createPerson(Person person) {
-        return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFirstName(), person.getLastName(),
-                person.getAge()) > 0;
+        return jdbcTemplate.update(SQL_INSERT_PERSON, person.getFirstName(), person.getLastName(),
+                person.getAge(), person.getRange()) > 0;
     }
 
     public int getRowsCount() {

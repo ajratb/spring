@@ -26,18 +26,29 @@ public class JdbcConfig {
     private final String PASSWORD = "dbpassword";
 
     @Bean
-    public DataSource pgDataSource() {
+    public DataSource h2DataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName(environment.getProperty(DRIVER));
-        
-        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/devdb");//?loggerLevel=TRACE&loggerFile=pgjdbc.log");
-        
-        dataSource.setUsername("dev");
-        //CHECK IF IT DEPENDS ON pg_hba.conf 
-        dataSource.setPassword(environment.getProperty(PASSWORD));
+        dataSource.setJdbcUrl(environment.getProperty(URL));
+//        dataSource.setUsername(environment.getProperty(USER));
+//        dataSource.setPassword(environment.getProperty(PASSWORD));
+        dataSource.setMaximumPoolSize(1000);
         return dataSource;
     }
-    
+
+//
+//    @Bean
+//    public DataSource pgDataSource() {
+//        HikariDataSource dataSource = new HikariDataSource();
+//        dataSource.setDriverClassName(environment.getProperty(DRIVER));
+//        
+//        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/devdb");//?loggerLevel=TRACE&loggerFile=pgjdbc.log");
+//        
+//        dataSource.setUsername("dev");
+//        //CHECK IF IT DEPENDS ON pg_hba.conf 
+//        dataSource.setPassword(environment.getProperty(PASSWORD));
+//        return dataSource;
+//    }
 //    @Bean
 //    public DataSource dataSource() {
 //        return new EmbeddedDatabaseBuilder()
@@ -45,5 +56,4 @@ public class JdbcConfig {
 //                .addScript("classpath:jdbc/schema.sql")
 //                .addScript("classpath:jdbc/test-data.sql").build();
 //    }
-
 }

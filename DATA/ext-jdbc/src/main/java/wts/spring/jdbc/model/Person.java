@@ -10,15 +10,20 @@ public class Person {
     private Integer age;
     private String firstName;
     private String lastName;
+    private float range;
 
     public Person() {
     }
 
-    public Person(Long id, Integer age, String firstName, String lastName) {
-        this.id = id;
+    public Person(
+            //Long id, 
+            Integer age, String firstName, String lastName, float range
+    ) {
+//        this.id = id;
         this.age = age;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.range = range;
     }
 
     public Long getId() {
@@ -53,9 +58,20 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public float getRange() {
+        return range;
+    }
+
+    public void setRange(float range) {
+        this.range = range;
+    }
+    
+    
+
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", age=" + age + ", firstName='" + firstName + '\'' + ", lastName='" + lastName
-                + '\'' + '}';
+        return "Person{" + "id=" + id + ", age=" + age + ", firstName='" 
+                + firstName + '\'' + ", lastName='" + lastName
+                + ", range='" + range + '\'' + '}';
     }
 }

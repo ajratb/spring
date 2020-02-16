@@ -15,9 +15,9 @@ public class People {
     String firstName;
     String lastName;
 
-//    @Override
-//    public String toString() {
-//        return "Person{" + "id=" + id + ", age=" + age + ", firstName='" + firstName + '\'' + ", lastName='" + lastName
-//                + '\'' + '}';
-//    }
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", age=" + age + ", firstName='" + firstName + '\'' + ", lastName='" + lastName
+                + '\'' + '}';
+    }
 }
