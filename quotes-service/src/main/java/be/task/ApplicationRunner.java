@@ -17,6 +17,7 @@ public class ApplicationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+        dao.getELevel("dd");
 
 //        int count = ((QuoteDaoImpl)dao).getRowsCount();
 //        System.out.println("======= ROWS COUNT IS: "+count+"===========");

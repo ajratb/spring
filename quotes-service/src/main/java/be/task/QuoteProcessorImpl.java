@@ -23,7 +23,7 @@ public class QuoteProcessorImpl implements QuoteProcessor {
     @Autowired
     QuoteDao dao;
 
-    private BlockingQueue<Quote> qQ = new LinkedBlockingQueue<>(10_000);
+    BlockingQueue<Quote> qQ = new LinkedBlockingQueue<>(10_000);
 
     @Override
     public void put(Quote q) throws InterruptedException {
@@ -35,7 +35,7 @@ public class QuoteProcessorImpl implements QuoteProcessor {
     }
 
     QuoteProcessorImpl(ExecutorService worker) {
-        worker.execute(this::doWork);
+//        worker.execute(this::doWork);
     }
     
     void doWork() {

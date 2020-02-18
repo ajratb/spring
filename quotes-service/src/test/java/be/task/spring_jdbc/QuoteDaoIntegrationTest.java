@@ -32,6 +32,7 @@ public class QuoteDaoIntegrationTest {
         
         float elvl = dao.getELevel("test12312355");
         assertThat(elvl).isEqualTo(2442347.4565f);
+        float elvl2 = dao.getELevel("test1231235");
     }
 //        Quote quote = new Quote();
 //        quote.setIsin("TestCorp");
