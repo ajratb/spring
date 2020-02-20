@@ -17,4 +17,4 @@ quote
 ADD CONSTRAINT ISIN_CHECK
 CHECK ( LENGTH(isin) = 12 );
 
-insert into quote(isin, bid, ask, elvl) values('test12312355', 45, 45.333,2442347.45645);
+-- insert into quote(isin, bid, ask, elvl) values('test12312355', 45, 45.333,2442347.45645);
