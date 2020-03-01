@@ -9,7 +9,6 @@ import wts.spring.jdbc.model.Person;
  *
  * @author ayrat
  */
-//@Service
 public class MainApp {
 
     public static void main(String[] args) {
@@ -56,12 +55,18 @@ public class MainApp {
             System.out.println(p);
         }
 
-        System.out.println("\nDeleting person with ID 2");
+        System.out.println("\nDeleting person with ID: " + personById.getId());
         personDAO.deletePerson(personById);
 
-        System.out.println("\nUpdate person with ID 3");
+        persons = personDAO.getAllPersons();
+        System.out.println("----------after deleting---------");
+         for (Person p : persons) {
+            System.out.println(p);
+        }
+        
+        System.out.println("\nUpdate person with ID: " + persons.get(0).getId());
 
-        Person pperson = personDAO.getPersonById(3L);
+        Person pperson = personDAO.getPersonById(persons.get(0).getId());
         pperson.setLastName("CHANGED");
         personDAO.updatePerson(pperson);
 

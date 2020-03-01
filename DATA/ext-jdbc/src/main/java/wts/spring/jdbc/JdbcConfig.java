@@ -4,32 +4,46 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @Configuration
 @ComponentScan("wts.spring.jdbc")
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:postgres-dev.properties")
+//@PropertySource("classpath:db.properties")
 public class JdbcConfig {
 
     @Autowired
-    Environment environment;
+    Environment env;
 
     private final String URL = "url";
     private final String USER = "dbuser";
     private final String DRIVER = "driver";
     private final String PASSWORD = "dbpassword";
 
+    @Primary
+     @Bean
+    public DataSource pgDataSource() {
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setDriverClassName(env.getProperty(DRIVER));
+
+        dataSource.setJdbcUrl(env.getProperty(URL));
+        //"jdbc:postgresql://localhost:5432/devdb?loggerLevel=TRACE");//&loggerFile=pgjdbc.log");
+
+        dataSource.setUsername(env.getProperty(USER));//"dev"
+        //CHECK IF IT DEPENDS ON pg_hba.conf 
+        dataSource.setPassword(env.getProperty(PASSWORD));
+        return dataSource;
+    }
+    
     @Bean
     public DataSource h2DataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDriverClassName(environment.getProperty(DRIVER));
-        dataSource.setJdbcUrl(environment.getProperty(URL));
+        dataSource.setDriverClassName(env.getProperty(DRIVER));
+        dataSource.setJdbcUrl(env.getProperty(URL));
 //        dataSource.setUsername(environment.getProperty(USER));
 //        dataSource.setPassword(environment.getProperty(PASSWORD));
         dataSource.setMaximumPoolSize(1000);

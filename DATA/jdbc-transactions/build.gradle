@@ -28,7 +28,6 @@ dependencies {
     compile 'junit:junit:4.13'
     
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
-//    compile 'net.ttddyy:datasource-proxy:1.5'
     //    testCompile("junit:junit")
     //    testCompile 'com.h2database:h2:1.4.200'
 }
