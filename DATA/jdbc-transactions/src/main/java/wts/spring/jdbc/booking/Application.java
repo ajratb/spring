@@ -4,7 +4,9 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+//@EnableTransactionManagement
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);

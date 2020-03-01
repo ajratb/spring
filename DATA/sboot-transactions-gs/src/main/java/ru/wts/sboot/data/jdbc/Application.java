@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
     @Autowired
-    ApplicationRunner appRunner;
+    AppRunner appRunner;
     
     public static void main(String args[]) {
         SpringApplication.run(Application.class, args);

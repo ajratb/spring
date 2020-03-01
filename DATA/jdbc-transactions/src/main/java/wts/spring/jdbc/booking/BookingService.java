@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
+//@EnableTransactionManagement
 public class BookingService {
 
     private final static Logger log = LoggerFactory.getLogger(BookingService.class);
@@ -24,7 +26,7 @@ public class BookingService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    @Transactional
+    @Transactional
     public void book(String... persons) {
         for (String person : persons) {
             log.info("Booking " + person + " in a seat...");

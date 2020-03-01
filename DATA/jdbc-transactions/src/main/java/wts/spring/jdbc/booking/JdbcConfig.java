@@ -55,8 +55,8 @@ public class JdbcConfig {
     }
 //
 //    @Bean
-//    BookingService bookingService() {
-//        return new BookingService();
+//    BookingService bookingService(JdbcTemplate jdbc) {
+//        return new BookingService(jdbc);
 //    }
 //    
     @Bean

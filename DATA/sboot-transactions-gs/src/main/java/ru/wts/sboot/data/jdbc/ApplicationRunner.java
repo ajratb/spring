@@ -15,14 +15,13 @@ import org.springframework.stereotype.Component;
  * @author ayrat
  */
 @Component
-public class ApplicationRunner implements CommandLineRunner {
+public class ApplicationRunner {
 
     private static final Logger log = LoggerFactory.getLogger(ApplicationRunner.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    @Override
     public void run(String... strings) throws Exception {
 
         log.info("Creating tables");
