@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc;
+package ru.wts.sboot.data.jdbc.access;
 
 
 /**

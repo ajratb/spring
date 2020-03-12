@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc;
+package ru.wts.sboot.data.jdbc.access;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,17 +11,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 /**
- *
+ * Try to use qualifier to change runner for launch!.
+ * 
  * @author ayrat
  */
 @Component
-public class ApplicationRunner {
+public class JdbcAccessAppRunner implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(ApplicationRunner.class);
+    private static final Logger log = LoggerFactory.getLogger(JdbcAccessAppRunner.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Override
     public void run(String... strings) throws Exception {
 
         log.info("Creating tables");

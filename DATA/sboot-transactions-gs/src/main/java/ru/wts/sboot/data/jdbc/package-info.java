@@ -1,9 +1,9 @@
 /**
  * Spring getting started guide:
  * 
- * Accessing Relational Data using JDBC with Spring
+ * Managing Transactions
  * 
- * https://spring.io/guides/gs/relational-data-access/
+ * https://spring.io/guides/gs/managing-transactions/
  * 
  */
 package ru.wts.sboot.data.jdbc;

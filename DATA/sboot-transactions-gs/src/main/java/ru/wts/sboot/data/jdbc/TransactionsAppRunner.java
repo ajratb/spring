@@ -9,13 +9,13 @@ import org.springframework.util.Assert;
 
 @Primary
 @Component
-class AppRunner implements CommandLineRunner {
+class TransactionsAppRunner implements CommandLineRunner {
 
-  private final static Logger logger = LoggerFactory.getLogger(AppRunner.class);
+  private final static Logger logger = LoggerFactory.getLogger(TransactionsAppRunner.class);
 
   private final BookingService bookingService;
 
-  public AppRunner(BookingService bookingService) {
+  public TransactionsAppRunner(BookingService bookingService) {
     this.bookingService = bookingService;
   }
 
