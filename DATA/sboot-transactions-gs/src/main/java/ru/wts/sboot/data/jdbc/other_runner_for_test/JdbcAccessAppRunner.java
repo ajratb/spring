@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc.access;
+package ru.wts.sboot.data.jdbc.other_runner_for_test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,13 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import ru.wts.sboot.data.jdbc.other_runner_for_test.Customer;
 
 /**
  * Try to use qualifier to change runner for launch!.
  * 
  * @author ayrat
  */
-@Component
+//@Component //WITH THIS ANNOTATION APPLICATION WILL USE THIS RUNNER TOO
+//("ja")//NO NEED
 public class JdbcAccessAppRunner implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(JdbcAccessAppRunner.class);

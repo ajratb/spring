@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc.access;
+package ru.wts.sboot.data.jdbc.other_runner_for_test;
 
 
 /**

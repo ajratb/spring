@@ -1,15 +1,15 @@
-package ru.wts.sboot.data.jdbc;
+package ru.wts.sboot.data.jdbc.transaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-@Primary
+//@Primary
 @Component
-class TransactionsAppRunner implements CommandLineRunner {
+//("tr")
+public class TransactionsAppRunner implements CommandLineRunner {
 
   private final static Logger logger = LoggerFactory.getLogger(TransactionsAppRunner.class);
 
