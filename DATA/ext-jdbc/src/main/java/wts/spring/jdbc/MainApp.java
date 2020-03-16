@@ -74,6 +74,18 @@ public class MainApp {
         for (Person p : personDAO.getAllPersons()) {
             System.out.println(p);
         }
+        
+        System.out.println("\nTry to SimpleJdbcInsert:");
+        SimpleJdbcUsage sJdbc = context.getBean(SimpleJdbcUsage.class);
+         Person sasha = new Person(42, "Sasha", "Pot", 89.36f);
+         sJdbc.addPerson(sasha);
+        
+         
+        System.out.println("\nList of person is:");
+        for (Person p : personDAO.getAllPersons()) {
+            System.out.println(p);
+        }
+         
         context.close();
     }
 }
