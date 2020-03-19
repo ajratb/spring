@@ -20,16 +20,20 @@ public class SimpleJdbcUsage {
     @Autowired
     public SimpleJdbcUsage(DataSource dataSource) {
         simpleJdbcInsert = new SimpleJdbcInsert(dataSource)
-                .withTableName("people").usingGeneratedKeyColumns("ID");;
+                .withTableName("people").usingGeneratedKeyColumns("id");;
     }
 
     public int addPerson(Person emp) {
-        Map<String, Object> parameters = new HashMap<String, Object>();
+        
+        Map<String, Object> parameters = new HashMap<>();
         parameters.put("ID", emp.getId());
         parameters.put("FIRST_NAME", emp.getFirstName());
         parameters.put("LAST_NAME", emp.getLastName());
         parameters.put("AGE", emp.getAge());
         parameters.put("RANGE", emp.getRange());
-        return simpleJdbcInsert.execute(parameters);
+        
+//        return simpleJdbcInsert.execute(parameters);
+        Number key = simpleJdbcInsert.executeAndReturnKey(parameters);
+        return (int)key;
     }
 }

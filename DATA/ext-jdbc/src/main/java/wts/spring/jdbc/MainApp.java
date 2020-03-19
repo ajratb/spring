@@ -19,22 +19,22 @@ public class MainApp {
         System.out.println("List of person is:");
 
         List<Person> persons = personDAO.getAllPersons();
-        
+
         for (Person p : persons) {
             System.out.println(p);
         }
-        
+
         Iterator<Person> itr = persons.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             personDAO.deletePerson(itr.next());
         }
         List<Person> currPersons = personDAO.getAllPersons();
         System.out.println("List of person now is EMPTY: " + String.valueOf(currPersons.isEmpty()));
         persons.forEach(p -> personDAO.createPerson(p));
-        
+
         persons = personDAO.getAllPersons();
         System.out.println("----------after recreating---------");
-         for (Person p : persons) {
+        for (Person p : persons) {
             System.out.println(p);
         }
 
@@ -60,10 +60,10 @@ public class MainApp {
 
         persons = personDAO.getAllPersons();
         System.out.println("----------after deleting---------");
-         for (Person p : persons) {
+        for (Person p : persons) {
             System.out.println(p);
         }
-        
+
         System.out.println("\nUpdate person with ID: " + persons.get(0).getId());
 
         Person pperson = personDAO.getPersonById(persons.get(0).getId());
@@ -74,18 +74,21 @@ public class MainApp {
         for (Person p : personDAO.getAllPersons()) {
             System.out.println(p);
         }
-        
+// try SimpleJdbcInsert        
         System.out.println("\nTry to SimpleJdbcInsert:");
-        SimpleJdbcUsage sJdbc = context.getBean(SimpleJdbcUsage.class);
-         Person sasha = new Person(42, "Sasha", "Pot", 89.36f);
-         sJdbc.addPerson(sasha);
+        SimpleJdbcUsage simpleJDBC = context.getBean(SimpleJdbcUsage.class);
+        Person sasha = new Person(42, "Sasha", "Pot", 89.36f);
+        long sashaId = simpleJDBC.addPerson(sasha);
+        System.out.println("Sasha's key is " + sashaId);
         
-         
+//        assertEquals(MESSAGE_CONTENT, loadedMessage);
+
+// show result         
         System.out.println("\nList of person is:");
         for (Person p : personDAO.getAllPersons()) {
             System.out.println(p);
         }
-         
+
         context.close();
     }
 }
