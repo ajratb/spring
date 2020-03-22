@@ -25,7 +25,7 @@ public class JdbcConfig {
     private final String PASSWORD = "dbpassword";
 
     @Primary
-     @Bean
+    @Bean
     public DataSource pgDataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName(env.getProperty(DRIVER));
@@ -38,36 +38,33 @@ public class JdbcConfig {
         dataSource.setPassword(env.getProperty(PASSWORD));
         return dataSource;
     }
-    
+
+//    @Primary
     @Bean
     public DataSource h2DataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName(env.getProperty(DRIVER));
+        //USE FILE, NOT MEMORY - AFTER SIMPLE_JDBC_INSERT EXECUTE_AND_RETURN_KEY
+        //YOU WILL GET EXCEPTION - TABLE NOT FOUND
         dataSource.setJdbcUrl(env.getProperty(URL));
-//        dataSource.setUsername(environment.getProperty(USER));
-//        dataSource.setPassword(environment.getProperty(PASSWORD));
+//        dataSource.setUsername(env.getProperty(USER));
+//        dataSource.setPassword(env.getProperty(PASSWORD));
         dataSource.setMaximumPoolSize(1000);
         return dataSource;
     }
 
-//
-//    @Bean
-//    public DataSource pgDataSource() {
-//        HikariDataSource dataSource = new HikariDataSource();
-//        dataSource.setDriverClassName(environment.getProperty(DRIVER));
-//        
-//        dataSource.setJdbcUrl("jdbc:postgresql://localhost:5432/devdb");//?loggerLevel=TRACE&loggerFile=pgjdbc.log");
-//        
-//        dataSource.setUsername("dev");
-//        //CHECK IF IT DEPENDS ON pg_hba.conf 
-//        dataSource.setPassword(environment.getProperty(PASSWORD));
-//        return dataSource;
-//    }
 //    @Bean
 //    public DataSource dataSource() {
 //        return new EmbeddedDatabaseBuilder()
 //                .setType(EmbeddedDatabaseType.H2)
+    
+        //.generateUniqueName(true)
+        //.setScriptEncoding("UTF-8")
+        //.ignoreFailedDrops(true)
+    
 //                .addScript("classpath:jdbc/schema.sql")
 //                .addScript("classpath:jdbc/test-data.sql").build();
+    //  .addScript("schema.sql")
+     //   .addScripts("user_data.sql", "country_data.sql")
 //    }
 }

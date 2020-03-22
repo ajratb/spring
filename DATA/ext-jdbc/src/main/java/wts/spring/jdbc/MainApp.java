@@ -76,9 +76,9 @@ public class MainApp {
         }
 // try SimpleJdbcInsert        
         System.out.println("\nTry to SimpleJdbcInsert:");
-        SimpleJdbcUsage simpleJDBC = context.getBean(SimpleJdbcUsage.class);
+//        SimpleJdbcUsage simpleJDBC = context.getBean(SimpleJdbcUsage.class);
         Person sasha = new Person(42, "Sasha", "Pot", 89.36f);
-        long sashaId = simpleJDBC.addPerson(sasha);
+        int sashaId = personDAO.addPersonAndReturnKey(sasha);
         System.out.println("Sasha's key is " + sashaId);
         
 //        assertEquals(MESSAGE_CONTENT, loadedMessage);

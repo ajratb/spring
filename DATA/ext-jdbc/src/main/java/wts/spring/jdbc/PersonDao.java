@@ -18,4 +18,6 @@ public interface PersonDao {
     boolean updatePerson(Person person);
 
     boolean createPerson(Person person);
+    
+    int addPersonAndReturnKey(Person emp);
 }
