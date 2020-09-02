@@ -20,3 +20,5 @@
 /**/gradlew.bat
 /**/gradle/
 /**/gradle.properties
+/**/*.swp
+/**/*oauth*.properties
