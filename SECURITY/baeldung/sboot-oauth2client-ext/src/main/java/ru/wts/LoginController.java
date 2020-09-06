@@ -29,11 +29,19 @@ public class LoginController {
     Map<String, String> oauth2AuthenticationUrls = new HashMap<>();
 
     @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
+    private ClientRegistrationRepository clientRegistrationRepository;//for custom login page
 
     @Autowired
-    private OAuth2AuthorizedClientService authorizedClientService;
+    private OAuth2AuthorizedClientService authorizedClientService;//for authorized user details
 
+    /**
+     * Use it only if a custom login page is needed.
+     * 
+     * html template from oauth_login.html
+     * 
+     * @param model
+     * @return 
+     */
     @GetMapping("/oauth_login")
     public String getLoginPage(Model model) {
         Iterable<ClientRegistration> clientRegistrations = null;
