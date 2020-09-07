@@ -1,0 +1,6 @@
+sboot-auth2client:
+1.0 - simple
+1.1 - login(login page, login info from authorizedClientService)
+1.2 - extractors - extract principal and authorities 
+1.3 - customized - customize security requests and responses
+
