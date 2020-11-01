@@ -1,4 +1,4 @@
-package hello;
+package sboot.data.jpa;
 
 import java.util.List;
 
