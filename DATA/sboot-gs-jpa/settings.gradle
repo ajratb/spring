@@ -16,4 +16,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'AccessingDataWithJPA'
+rootProject.name = 'sboot-gs-jpa'
