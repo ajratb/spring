@@ -29,3 +29,8 @@
 
 # Misc files
 /**/log.txt
+
+# VS Code
+/**/.project
+/**/.settings
+/**/.classpath
