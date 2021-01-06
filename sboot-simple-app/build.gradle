@@ -1,12 +1,19 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'//'1.8'
+
+//lombok configuration
+// configurations {
+// 	compileOnly {
+// 		extendsFrom annotationProcessor
+// 	}
+// }
 
 repositories {
     mavenCentral()
@@ -14,12 +21,20 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+	//------ lombok ------
+	//compileOnly 'org.projectlombok:lombok'
+	//annotationProcessor 'org.projectlombok:lombok'
+	//--------------------
+	//------ devtools ------
+	//developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+//    }
 }
 
 test {
     useJUnitPlatform()
-    testLogging.showStandardStreams = true
+    testLogging.showStandardStreams = true//to see sys.output in test
 }
