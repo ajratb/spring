@@ -10,8 +10,14 @@ package ru.waytosky.spring;
  * @author Ayrat
  */
 public class ConsoleEventLogger implements EventLogger{
+	
+	
 
-    /**
+    public ConsoleEventLogger() {
+		System.out.println("CONSTRUCTOR ConsoleEventLogger");
+	}
+
+	/**
      *
      * @param message
      */
@@ -19,4 +25,8 @@ public class ConsoleEventLogger implements EventLogger{
     public void logEvent(Event event){
         System.out.println(event.toString());
     }
+    
+    public void destroy() {
+		System.out.println("DESTROY ConsoleEventLogger");
+	}
 }

@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--<beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:util="http://www.springframework.org/schema/util"
-xmlns:p="http://www.springframework.org/schema/p"
-xmlns:c="http://www.springframework.org/schema/c"
-xmlns:context="http://www.springframework.org/schema/context"
-xsi:schemaLocation="
-http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-http://www.springframework.org/schema/util
-http://www.springframework.org/schema/util/spring-util-3.2.xsd
-http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context-3.2.xsd">-->
-        
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!--<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"> -->
 
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 ">
-    <bean id="event" class="ru.waytosky.spring.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date" /> 
-        </constructor-arg>
-        <constructor-arg>
-            <bean id="dateFormat" class="java.text.DateFormat"
-                  factory-method="getDateTimeInstance"/>
-        </constructor-arg>
-        <!--        <constructor-arg value="#{new java.util.Date()}"/>
-        <constructor-arg value="#{T(java.text.DateFormat).getDateTimeInstance()}" />-->
-    </bean>
-    <bean id="client" class="ru.waytosky.spring.Client">
-        <constructor-arg type="java.lang.String" value="1"/>
-        <constructor-arg value="John Smith"/>
-    </bean>
-    <bean id="eventLogger" class="ru.waytosky.spring.ConsoleEventLogger"/>
-    <bean id="fileLogger" class="ru.waytosky.spring.FileEventLogger"
-              init-method="init">
-        <constructor-arg value="./src/main/resources/log.txt"/>
-    </bean>
-    
-    <bean id="cacheFileLogger" 
-          class="ru.waytosky.spring.CacheFileEventLogger"    
-          parent="fileLogger"  
-          destroy-method="destroy">
-        <constructor-arg value="10"/>
-    </bean><!--init-method="init"-->   
-    <bean id="app" class="ru.waytosky.spring.App">
-        <constructor-arg ref="client"/>
-        <constructor-arg ref="fileLogger"/>
-    </bean>
+
+	<!-- APP -->
+	<bean id="app" class="ru.waytosky.spring.App">
+		<constructor-arg ref="client" />
+		<!-- <constructor-arg ref="fileLogger" /> -->
+		<constructor-arg ref="eventLogger" />
+	</bean>
+	<!-- EVENT -->
+	<bean id="event" class="ru.waytosky.spring.Event"
+		scope="prototype">
+		<constructor-arg>
+			<bean class="java.util.Date" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean id="dateFormat" class="java.text.DateFormat"
+				factory-method="getDateTimeInstance" />
+		</constructor-arg>
+		<!-- <constructor-arg value="#{new java.util.Date()}"/> <constructor-arg 
+			value="#{T(java.text.DateFormat).getDateTimeInstance()}" /> -->
+	</bean>
+	<!-- CLIENT -->
+	<bean id="client" class="ru.waytosky.spring.Client">
+		<constructor-arg type="java.lang.String" value="1" />
+		<constructor-arg value="John Smith" />
+	</bean>
+	<!-- LOGGERS -->
+	<bean id="eventLogger" destroy-method="destroy"
+		
+		class="ru.waytosky.spring.ConsoleEventLogger" />
+	<!-- scope="singleton" - default, use scope="prototype" to get new every time -->
+	<bean id="fileLogger" class="ru.waytosky.spring.FileEventLogger"
+		init-method="init">
+		<constructor-arg value="./src/main/resources/log.txt" />
+	</bean>
+
+	<bean id="cacheFileLogger"
+		class="ru.waytosky.spring.CacheFileEventLogger" parent="fileLogger"
+		destroy-method="destroy">
+		<!-- <constructor-arg index="0" value="./src/main/resources/log.txt" /> -->
+		<constructor-arg value="10" /> 
+		<!-- <constructor-arg name="filename" value="./src/main/resources/log.txt" />
+		<constructor-arg index="1"  name="cacheSize" type="java.lang.Integer" value="10" /> -->
+	</bean><!--init-method="init" -->
+
 </beans>

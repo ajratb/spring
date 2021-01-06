@@ -17,17 +17,19 @@ public class CacheFileEventLogger extends FileEventLogger{
     List<Event> cache;
     int cacheSize;
     
-    public CacheFileEventLogger(){
-        super();
-    }
-
-    public CacheFileEventLogger(String filename) {
-        super(filename);
-    }
+//    public CacheFileEventLogger(){
+//        super();
+//    }
+//
+//    public CacheFileEventLogger(String filename) {
+//        super(filename, "cache");
+//    }
     
     public CacheFileEventLogger(String filename, int cacheSize) {
         
-        super(filename);
+        super(filename, "cache");
+        System.out.format("- cache size: %d\n", cacheSize);
+        System.out.format("- filename: %s\n", filename);
         this.cacheSize=cacheSize;
         cache=new ArrayList<>();
     }
