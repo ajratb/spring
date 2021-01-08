@@ -46,7 +46,7 @@ public class DemoApplication {
 	public void onExit() {
 		log.info("###STOPing###");
 		try {
-			Thread.sleep(5 * 1000);
+			Thread.sleep(3 * 1000);
 		} catch (InterruptedException e) {
 			log.error("", e);
 		}
