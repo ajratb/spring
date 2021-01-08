@@ -15,12 +15,14 @@ import org.springframework.core.env.Environment;
 @ComponentScan("wts.props")
 @PropertySource("classpath:app.properties")
 public class AppWithPropsConf {
-     @Autowired
-    Environment env;
-    // 
-    @Bean
-    Message message() {
-        return new Message(env.getProperty("msg"));
-    }
+
+	@Autowired
+	Environment env;
+
+	//
+	@Bean
+	Message message() {
+		return new Message(env.getProperty("msg"));
+	}
 
 }

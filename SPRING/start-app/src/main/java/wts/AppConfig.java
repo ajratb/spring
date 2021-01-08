@@ -10,27 +10,25 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 @ComponentScan("wts")
 public class AppConfig {
-    
-    
-    
-    @Bean
-    public MyService myService() {
-        MyService srv = new MyService();
-        return srv;
-    }
-    
-    @Bean
-    @Primary
+
+	@Bean
+	public MyService myService() {
+		MyService srv = new MyService();
+		return srv;
+	}
+
+	@Bean
+	@Primary
 //    @Qualifier("first")
-    public Student firstStudent(){
-        return new Student("Petya", 16);
-    }
-    
-    @Bean
-    @Qualifier("second")
+	public Student firstStudent() {
+		return new Student("Petya", 16);
+	}
+
+	@Bean
+	@Qualifier("second")
 //    @Resource(name="second")
-    public Student secondStudent(){
-        return new Student("Vasya", 24);
-    }
+	public Student secondStudent() {
+		return new Student("Vasya", 24);
+	}
 
 }
