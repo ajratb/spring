@@ -1,6 +1,6 @@
 package wts;
 
-import javax.annotation.Resource;
+//import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,7 +28,7 @@ public class AppConfig {
     
     @Bean
     @Qualifier("second")
-    @Resource(name="second")
+//    @Resource(name="second")
     public Student secondStudent(){
         return new Student("Vasya", 24);
     }
