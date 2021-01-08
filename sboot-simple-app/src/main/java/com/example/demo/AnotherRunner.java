@@ -21,6 +21,7 @@ public class AnotherRunner implements CommandLineRunner{
     
     @Override
     public void run(String... args) throws Exception {
+    	System.out.println("START ANOTHER_RUNNER");
         System.out.println(compo.sayWhoIAm());
         
     }
