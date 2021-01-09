@@ -4,6 +4,6 @@ package com.example.demo.stuff;
  *
  * @author ayrat
  */
-public interface IBean {
-    
+public interface MyBean {
+	String getBeanName();
 }
