@@ -3,7 +3,11 @@
 == sb-start-app
 
 - Multiple CommandLineRunner
+
 - @Component("<comp_name>") and Qualifier("<comp_name>")
+
 - @Configuration with @Bean, @Primary, @Qualifier("<bean_name>")
+
 - ctx.getBeanDefinitionNames()
+
 - @PreDestroy - override predestroy method
