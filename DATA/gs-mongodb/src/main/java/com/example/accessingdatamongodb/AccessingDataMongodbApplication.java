@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 
 @SpringBootApplication
 public class AccessingDataMongodbApplication implements CommandLineRunner {
@@ -42,7 +45,13 @@ public class AccessingDataMongodbApplication implements CommandLineRunner {
 		for (Customer customer : repository.findByLastName("Smith")) {
 			System.out.println(customer);
 		}
-
+		
+		//This is for using with MongoTemplate
+		Query q = new Query();
+		q.addCriteria(Criteria.where("firstName").is("Alice"));
+		Update update = new Update();
+		update.set("lastName", "Couper");
+		//..
 	}
 
 }
