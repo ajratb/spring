@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  name: localhost
+  #ms-jlms
+  dbName: justiceLeague
+
+
+
+spring:
+  data:
+    mongodb:
+      uri: localhost:27017
+      #35.244.101.18:27017
