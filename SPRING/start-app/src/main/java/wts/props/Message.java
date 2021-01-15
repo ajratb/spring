@@ -14,7 +14,7 @@ public class Message {
 		this.val = val;
 	}
 
-	void printMsg() {
+	public void printMsg() {
 		System.out.println("Message: " + val);
 	}
 }

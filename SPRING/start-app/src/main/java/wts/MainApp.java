@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 
+import wts.props.Message;
+
 @Service
 public class MainApp {
 
@@ -24,6 +26,9 @@ public class MainApp {
 //    MainApp(MyService myService) {
 //        this.myService = myService;
 //    }
+	@Autowired
+	Message msg;
+	
 	public static void main(String[] args) {
 		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {
 
@@ -45,6 +50,10 @@ public class MainApp {
 			srvBean.printMsg("from srv");
 
 			System.out.println("first student name is: " + app.second.getName());
+			
+			//AppWithPropsConf is also available 
+			Message msgBean = ctx.getBean(Message.class);
+			msgBean.printMsg();
 		}
 	}
 }
