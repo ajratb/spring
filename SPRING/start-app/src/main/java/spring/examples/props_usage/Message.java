@@ -1,4 +1,4 @@
-package wts.props;
+package spring.examples.props_usage;
 
 /**
  *
@@ -16,5 +16,9 @@ public class Message {
 
 	public void printMsg() {
 		System.out.println("Message: " + val);
+	}
+
+	public String getVal() {
+		return val;
 	}
 }

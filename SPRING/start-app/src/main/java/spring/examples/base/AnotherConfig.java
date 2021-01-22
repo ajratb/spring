@@ -1,4 +1,4 @@
-package wts;
+package spring.examples.base;
 
 public class AnotherConfig {
 

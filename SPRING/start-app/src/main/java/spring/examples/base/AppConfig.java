@@ -1,4 +1,4 @@
-package wts;
+package spring.examples.base;
 
 //import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,9 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 
+import spring.examples.base.beans.MyService;
+import spring.examples.base.beans.Student;
+
 @Configuration
-@ComponentScan("wts")
-@Import({wts.props.AppWithPropsConf.class, AnotherConfig.class})//AnotherConfig.class added just for example!
+@ComponentScan("spring.examples.base")
+@Import({spring.examples.props_usage.AppWithPropsConf.class, AnotherConfig.class})//AnotherConfig.class added just for example!
 public class AppConfig {
 
 	@Bean

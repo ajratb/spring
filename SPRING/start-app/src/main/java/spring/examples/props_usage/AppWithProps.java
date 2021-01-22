@@ -1,4 +1,4 @@
-package wts.props;
+package spring.examples.props_usage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

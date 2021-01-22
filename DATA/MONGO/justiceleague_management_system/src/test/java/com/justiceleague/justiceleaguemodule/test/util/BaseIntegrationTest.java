@@ -32,7 +32,7 @@ import de.flapdoodle.embed.mongo.distribution.Version;
  * @author dinuka
  *
  */
-@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)// is it needed?
 @SpringBootTest
 @AutoConfigureMockMvc
 public abstract class BaseIntegrationTest {
