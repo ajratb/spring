@@ -11,13 +11,16 @@ repositories {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-mainClassName='spring.examples.base.MainApp'
+mainClassName='spring.events.MainApp'
+
+// application {
+//     // Define the main class for the application.
+//     mainClass = 'spring.events.MainApp'
+// }
 
 dependencies {
 	implementation 'org.springframework:spring-context:5.3.3'
+	implementation 'org.springframework:spring-tx:5.3.3'
 	testImplementation	'org.springframework:spring-test:5.3.3'
 	testImplementation 'junit:junit:4.12'
-//	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
-
-	//	testCompile("junit:junit")
 }

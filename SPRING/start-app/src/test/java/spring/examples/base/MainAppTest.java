@@ -56,4 +56,11 @@ public class MainAppTest {
 		System.out.println("tear down");
 	}
 
+	//from gradle initiated project
+	@Test
+	public void testAppHasAGreeting() {
+		MainApp classUnderTest = new MainApp();
+		assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+	}
+
 }

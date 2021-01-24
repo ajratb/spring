@@ -3,13 +3,13 @@ package spring.examples.base;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import spring.examples.base.beans.MyService;
 import spring.examples.base.beans.Student;
 import spring.examples.props_usage.Message;
 
-@Service
+@Component//or Service or Repository
 public class MainApp {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class MainApp {
 //    }
 	@Autowired
 	Message msg;
-	
+
 	public static void main(String[] args) {
 		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {
 
@@ -52,10 +52,18 @@ public class MainApp {
 			srvBean.printMsg("from srv");
 
 			System.out.println("first student name is: " + app.second.getName());
-			
-			//AppWithPropsConf is also available 
+
+			// AppWithPropsConf is also available
 			Message msgBean = ctx.getBean(Message.class);
 			msgBean.printMsg();
+			
+			//from gradle initiated project
+			System.out.println(new MainApp().getGreeting());
 		}
+	}
+
+	//from gradle initiated project
+	public String getGreeting() {
+		return "Hello World!";
 	}
 }

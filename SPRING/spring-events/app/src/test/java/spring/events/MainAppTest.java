@@ -1,4 +1,4 @@
-package spring.examples.events_usage;
+package spring.events;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +9,9 @@ import org.springframework.test.context.event.RecordApplicationEvents;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = EventsUsageTestConfiguration.class)
+@ContextConfiguration(classes = TestConfiguration.class)
 @RecordApplicationEvents
-public class EventsUsageTest {
-
+public class MainAppTest {
 	@Autowired
 	ApplicationEvents events;
 	
@@ -23,10 +22,9 @@ public class EventsUsageTest {
 	public void test() {
 		
 		publisher.publishCustomEvent("This is The Event Message");
-		long numEvents = events.stream(CustomSpringEventPublisher.class).count();
 		
-		
-		
+		//it doesn't work
+		//long numEvents = events.stream(CustomSpringEventPublisher.class).count();
 		//assertEquals(numEvents, 0);
 	}
 }
