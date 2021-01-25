@@ -3,8 +3,8 @@ package baeldung.synchronous;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-//import org.springframework.transaction.event.TransactionPhase;
-//import org.springframework.transaction.event.TransactionalEventListener;
+import org.springframework.transaction.event.TransactionPhase;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 @Component
 public class AnnotationDrivenEventListener {
@@ -26,11 +26,11 @@ public class AnnotationDrivenEventListener {
         hitSuccessfulEventHandler = true;
     }
 
-//    @TransactionalEventListener(phase = TransactionPhase.BEFORE_COMMIT)
-//    public void handleCustom(final CustomSpringEvent event) {
-//        System.out.println("Handling event inside a transaction BEFORE COMMIT.");
-//        hitCustomEventHandler = true;
-//    }
+    @TransactionalEventListener(phase = TransactionPhase.BEFORE_COMMIT)
+    public void handleCustom(final CustomSpringEvent event) {
+        System.out.println("Handling event inside a transaction BEFORE COMMIT.");
+        hitCustomEventHandler = true;
+    }
 
     boolean isHitContextStartedHandler() {
         return hitContextStartedHandler;

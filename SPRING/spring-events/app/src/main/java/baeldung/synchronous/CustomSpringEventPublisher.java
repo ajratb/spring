@@ -24,8 +24,8 @@ public class CustomSpringEventPublisher {
 
     public void publishGenericAppEvent(final String message) {
         System.out.println("Publishing generic event.");
-        final GenericSpringAppEvent<String> genericSpringEvent = new GenericStringSpringAppEvent(this, message);
-        applicationEventPublisher.publishEvent(genericSpringEvent);
+        final GenericSpringAppEvent<String> genericSpringAppEvent = new GenericStringSpringAppEvent(this, message);
+        applicationEventPublisher.publishEvent(genericSpringAppEvent);
     }
 
 }
