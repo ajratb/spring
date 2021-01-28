@@ -11,11 +11,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import spring.examples.base.beans.MyService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)//a nice alias for SpringJUnit4ClassRunner
 @ContextConfiguration(classes = AppConfig.class) // you can create TestAppConfig for using here
 // also you can use xml configurations
 public class MainAppTest {

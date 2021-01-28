@@ -1,5 +1,5 @@
 plugins {
-	id 'java'
+	//	id 'java'
 	id 'application'
 	//    id 'idea'
 }
@@ -11,13 +11,15 @@ repositories {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-mainClassName='spring.examples.base.MainApp'
+//mainClassName='spring.examples.base.MainApp'
+application{
+	mainClass = 'spring.examples.base.MainApp'
+}
 
 dependencies {
 	implementation 'org.springframework:spring-context:5.3.3'
 	testImplementation	'org.springframework:spring-test:5.3.3'
 	testImplementation 'junit:junit:4.12'
-//	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
-
+	//	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 	//	testCompile("junit:junit")
 }

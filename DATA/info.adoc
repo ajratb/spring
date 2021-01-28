@@ -1,0 +1,7 @@
+=== postgres*.properties
+
+* contains credentials for devdb
+
+=== In .gitignore:
+
+* postgres*.properties
