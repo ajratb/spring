@@ -18,8 +18,8 @@ application {
 }
 
 dependencies {
-	implementation 'org.springframework:spring-jdbc:5.2.3.RELEASE',
-			'org.springframework:spring-context:5.1.1.RELEASE',
+	implementation 'org.springframework:spring-context:5.1.1.RELEASE',
+			'org.springframework:spring-jdbc:5.2.3.RELEASE',
 			'com.zaxxer:HikariCP:3.4.2',//do I need it?
 			'com.h2database:h2:1.4.200',
 			'org.postgresql:postgresql:42.1.4'

@@ -16,7 +16,8 @@ mainClassName='wts.DataAccessApp'
 dependencies {
 	implementation 'org.springframework:spring-jdbc:5.2.3.RELEASE',
 			'org.springframework:spring-context:5.1.1.RELEASE',
+			'com.h2database:h2:1.4.200',
 			'org.postgresql:postgresql:42.1.4'
 	//    compile/implementation files('jdbc/postgresql-9.4.1209.jar')
-	testImplementation("junit:junit")
+	testImplementation("junit:junit:4.13")
 }
