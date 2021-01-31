@@ -1,3 +1,5 @@
+import java.awt.Event
+
 plugins {
 	//	id 'java'
 	id 'application'
@@ -20,11 +22,20 @@ application {
 dependencies {
 	implementation 'org.springframework:spring-context:5.1.1.RELEASE',
 			'org.springframework:spring-jdbc:5.2.3.RELEASE',
-			'com.zaxxer:HikariCP:3.4.2',//do I need it?
+			'com.zaxxer:HikariCP:3.4.2',//I think I need it because a bare spring app doesn't create a default connection pool
 			'com.h2database:h2:1.4.200',
 			'org.postgresql:postgresql:42.1.4'
 	//			files('jdbc/postgresql-9.4.1209.jar')
 	testImplementation 'org.springframework:spring-test:5.2.3.RELEASE',
 			'junit:junit:4.13',
 			'org.assertj:assertj-core:3.15.0'
+}
+
+test {
+
+//	testLogging.showStandardStreams = true
+	
+	onOutput{descriptor, event ->
+		logger.lifecycle(""+descriptor+" says: " + event.message)
+	}
 }
