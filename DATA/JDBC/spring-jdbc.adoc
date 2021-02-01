@@ -1,0 +1,31 @@
+= Bare Spring Projects
+
+== simple-jdbc
+
+it's really simple project
+
+== ext-jdbc
+
+it's quite interesting project with:
+
+* rich dao implementation
+
+* tests
+
+* using property file in configuration
+
+* choice between two data sources:
+
+** hikary-postgres data source with connection pool management
+
+** h2 in-memory data source with initiation sql script
+
+* even transaction management! (you can see how the method has no result if: 1) the data source has auto-commit set false 2) the methods are not transactional)
+
+
+== data-jdbc
+
+it's only started.. see sboot-data project for example
+
+= Spring Boot Projects
+

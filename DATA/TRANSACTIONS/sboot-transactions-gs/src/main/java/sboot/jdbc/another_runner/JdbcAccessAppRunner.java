@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc.other_runner_for_test;
+package sboot.jdbc.another_runner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import ru.wts.sboot.data.jdbc.other_runner_for_test.Customer;
+
+import sboot.jdbc.another_runner.Customer;
 
 /**
  * Try to use qualifier to change runner for launch!.

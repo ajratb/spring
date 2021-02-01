@@ -6,4 +6,4 @@
  * https://spring.io/guides/gs/managing-transactions/
  * 
  */
-package ru.wts.sboot.data.jdbc.transaction;
+package chess715.study;

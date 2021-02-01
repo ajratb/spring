@@ -1,0 +1,24 @@
+== Bare spring
+=== jdbc-transactions 
+
+Getting started project without Spring Boot
+
+- here is a PROBLEM - should know better about spring-tx and EnableTransactionManagement
+
+== Spring Boot Getting Started Guide
+Managing Transactions
+https://spring.io/guides/gs/managing-transactions/
+
+=== sboot-transactions-gs
+The guide project, but with:
+
+* TransactionTest class to see how it works when you call method from bean:
+
+** it's ok by default(for @Component or just a class)
+
+** it will throw IllegalTransactionStateException if you set propagation = NEVER
+
+* AnotherJdbcRunner to demonstrate that it will be work automatically(by using bootRun task)
+
+=== ManagingTransactionsMaven
+The guide project as it is.

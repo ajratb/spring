@@ -1,9 +1,10 @@
-package ru.wts.sboot.data.jdbc.transaction;
+package sboot.jdbc.transaction;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,13 +20,16 @@ public class BookingService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Autowired
+    TransactionTest test;
+    
     @Transactional
     public void book(String... persons) {
-//        new TransactionTest().isItTransactional(jdbcTemplate, persons);
-        for (String person : persons) {
-            logger.info("Booking " + person + " in a seat...");
-            jdbcTemplate.update("insert into BOOKINGS(FIRST_NAME) values (?)", person);
-        }
+        test.canBeExecutedInTransaction(jdbcTemplate, persons);
+//        for (String person : persons) {
+//            logger.info("Booking " + person + " in a seat...");
+//            jdbcTemplate.update("insert into BOOKINGS(FIRST_NAME) values (?)", person);
+//        }
     }
 
     public List<String> findAllBookings() {

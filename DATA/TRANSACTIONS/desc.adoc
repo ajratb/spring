@@ -1,8 +1,0 @@
-== jdbc-transactions 
-
-Getting started project without Spring Boot
-
-- here is a PROBLEM - should know better about spring-tx and EnableTransactionManagement
-
-== sboot-transactions-gs
-just like in guide

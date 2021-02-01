@@ -1,4 +1,4 @@
-package ru.wts.sboot.data.jdbc.transaction;
+package sboot.jdbc.transaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,9 +33,7 @@ public class TransactionsAppRunner implements CommandLineRunner {
         } catch (DataIntegrityViolationException e) {//RuntimeException
             logger.info("v--- The following exception is expect because 'Samuel' is too "
                     + "big for the DB ---v");
-//            logger.info("! {} !", e.getClass(), e.getMessage());
             logger.info("! {} : {} !", e.getClass(), e.getMessage());
-//            logger.error(e.getMessage());
         }
 
         for (String person : bookingService.findAllBookings()) {

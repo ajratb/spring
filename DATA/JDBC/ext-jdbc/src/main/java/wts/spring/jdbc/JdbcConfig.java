@@ -54,9 +54,9 @@ public class JdbcConfig {
 		dataSource.setPassword(env.getProperty(PASSWORD));
 		dataSource.setMaximumPoolSize(maxPool);
 		dataSource.setMinimumIdle(minIdle);
-		//!!!!!!!!!! ONLY TRANSACTIONAL METHOD WILL BE COMMIT !!!!!!!!!!!!!
+		// !!!!!!!!!! ONLY TRANSACTIONAL METHOD WILL BE COMMIT !!!!!!!!!!!!!
 		dataSource.setAutoCommit(false);
-		//=======================================
+		// =======================================
 		return dataSource;
 	}
 
@@ -80,12 +80,20 @@ public class JdbcConfig {
 //		 .addScripts("user_data.sql", "country_data.sql").build();
 		return sourceBuilder.build();
 	}
-	
+
 //	@Autowired
 //	DataSource ds;
-	
+
+	/**
+	 * You can inject dataSource using @Autowired or just invoking the method.
+	 * 
+	 * In case when datasource autocommit is set 'false' - 
+	 * The modification methods will have no result if they are not @Transactional
+	 * 
+	 * @return
+	 */
 	@Bean
 	public PlatformTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(pgDataSource());//ds);
+		return new DataSourceTransactionManager(pgDataSource());// ds);
 	}
 }
