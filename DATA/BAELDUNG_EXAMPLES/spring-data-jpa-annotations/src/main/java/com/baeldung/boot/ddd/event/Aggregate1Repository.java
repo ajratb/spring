@@ -5,6 +5,6 @@ package com.baeldung.boot.ddd.event;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface AggregateRepository extends CrudRepository<Aggregate, Long> {
+public interface Aggregate1Repository extends CrudRepository<Aggregate1, Long> {
 
 }

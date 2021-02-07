@@ -10,16 +10,16 @@ import javax.persistence.Transient;
 import org.springframework.context.ApplicationEventPublisher;
 
 @Entity
-class Aggregate {
+class Aggregate1 {
     @Transient
     private ApplicationEventPublisher eventPublisher;
     @Id
     private long id;
 
-    private Aggregate() {
+    private Aggregate1() {
     }
 
-    Aggregate(long id, ApplicationEventPublisher eventPublisher) {
+    Aggregate1(long id, ApplicationEventPublisher eventPublisher) {
         this.id = id;
         this.eventPublisher = eventPublisher;
     }

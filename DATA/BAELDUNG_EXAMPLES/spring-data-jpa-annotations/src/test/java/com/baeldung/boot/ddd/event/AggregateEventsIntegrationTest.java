@@ -3,7 +3,8 @@ package com.baeldung.boot.ddd.event;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
+//import static org.mockito.Mockito.verifyZeroInteractions;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,8 +17,8 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.baeldung.boot.ddd.event.Aggregate;
-import com.baeldung.boot.ddd.event.AggregateRepository;
+import com.baeldung.boot.ddd.event.Aggregate1;
+import com.baeldung.boot.ddd.event.Aggregate1Repository;
 import com.baeldung.boot.ddd.event.DomainEvent;
 import com.baeldung.boot.ddd.event.DomainService;
 
@@ -33,7 +34,7 @@ class AggregateEventsIntegrationTest {
     @Autowired
     private ApplicationEventPublisher eventPublisher;
     @Autowired
-    private AggregateRepository repository;
+    private Aggregate1Repository repository;
 
     // @formatter:off
     @DisplayName("given existing aggregate,"
@@ -42,7 +43,7 @@ class AggregateEventsIntegrationTest {
     // @formatter:on
     @Test
     void aggregateEventsTest() {
-        Aggregate existingDomainEntity = new Aggregate(0, eventPublisher);
+        Aggregate1 existingDomainEntity = new Aggregate1(0, eventPublisher);
         repository.save(existingDomainEntity);
 
         // when
@@ -51,7 +52,7 @@ class AggregateEventsIntegrationTest {
             .domainOperation();
 
         // then
-        verifyZeroInteractions(eventHandler);
+        verifyNoInteractions(eventHandler);
     }
 
     @BeforeEach
@@ -66,7 +67,7 @@ class AggregateEventsIntegrationTest {
     // @formatter:on
     @Test
     void serviceEventsTest() {
-        Aggregate existingDomainEntity = new Aggregate(1, eventPublisher);
+        Aggregate1 existingDomainEntity = new Aggregate1(1, eventPublisher);
         repository.save(existingDomainEntity);
 
         // when
@@ -79,7 +80,7 @@ class AggregateEventsIntegrationTest {
     @TestConfiguration
     public static class TestConfig {
         @Bean
-        public DomainService domainService(AggregateRepository repository, ApplicationEventPublisher eventPublisher) {
+        public DomainService domainService(Aggregate1Repository repository, ApplicationEventPublisher eventPublisher) {
             return new DomainService(repository, eventPublisher);
         }
     }

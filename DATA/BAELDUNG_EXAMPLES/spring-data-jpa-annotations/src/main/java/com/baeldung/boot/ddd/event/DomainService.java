@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DomainService {
     private final ApplicationEventPublisher eventPublisher;
-    private final AggregateRepository repository;
+    private final Aggregate1Repository repository;
 
-    public DomainService(AggregateRepository repository, ApplicationEventPublisher eventPublisher) {
+    public DomainService(Aggregate1Repository repository, ApplicationEventPublisher eventPublisher) {
         this.repository = repository;
         this.eventPublisher = eventPublisher;
     }
