@@ -1,0 +1,9 @@
+= COMMON INFORMATION
+
+There are a number of guides in this project(six, actually). 
+
+(See Readme.md to get web-links)
+
+The code of these guides ordered into different packages, so you can work with each of them separatelly
+
+USE TESTs to see how it works(comment <!-- <exclude>**/*IntegrationTest.java</exclude> --> in parent-modules pom(root pom))

@@ -32,6 +32,7 @@ class Aggregate1 {
         return "DomainEntity [id=" + id + "]";
     }
 
+    //it's not working this way
     void domainOperation() {
         // some business logic
         if (eventPublisher != null) {

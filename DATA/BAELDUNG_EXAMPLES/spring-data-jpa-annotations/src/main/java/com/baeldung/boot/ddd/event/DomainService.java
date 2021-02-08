@@ -8,6 +8,12 @@ import javax.transaction.Transactional;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+/**
+ * It's used for manipulation with Aggregate1(using agregate1Repository parameter).
+ * 
+ * @author ayrat
+ *
+ */
 @Service
 public class DomainService {
     private final ApplicationEventPublisher eventPublisher;
@@ -22,7 +28,7 @@ public class DomainService {
     public void serviceDomainOperation(long entityId) {
         repository.findById(entityId)
             .ifPresent(entity -> {
-                entity.domainOperation();
+//                entity.domainOperation();// it doesn't for the tests!
                 repository.save(entity);
                 eventPublisher.publishEvent(new DomainEvent());
             });

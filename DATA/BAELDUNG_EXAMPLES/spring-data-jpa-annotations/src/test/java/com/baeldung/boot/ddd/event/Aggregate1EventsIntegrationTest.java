@@ -3,8 +3,8 @@ package com.baeldung.boot.ddd.event;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
-//import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;//use it instead of verifyZeroInteractions
+//import static org.mockito.Mockito.verifyZeroInteractions; - it's deprecated
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +24,7 @@ import com.baeldung.boot.ddd.event.DomainService;
 
 @SpringJUnitConfig
 @SpringBootTest
-class AggregateEventsIntegrationTest {
+class Aggregate1EventsIntegrationTest {
 
     @Autowired
     private DomainService domainService;

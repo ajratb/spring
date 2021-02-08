@@ -1,0 +1,19 @@
+= 1ST PROJECT: DDD Aggregates and @DomainEvents
+
+it has 'step-by-step' logic, simplifying code from first aggregator - Aggregate1 to Aggregate3
+
+*The scenario is:*
+create aggregate, save it and publish an event.
+
+1) Using Aggregate1 instance via DomainService(using repository and publisher in @Transactional method)
+You can publish event only in spring component transactional method!
+
+2) Aggregate2 contains @DomainEvents collection<DomainEvent>. 
+
+When save aggregate all the events in the collection will be publish automatically. After that the collection will be cleaned.
+
+3) Using AbstractAggregateRoot
+
+org.springframework.data.domain.AbstractAggregateRoot
+
+Aggregate3 extends AbstractAggregateRoot<Aggregate3>

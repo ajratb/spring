@@ -305,7 +305,6 @@
                             <includes>
                                 <include>SpringContextTest</include>
                                 <include>**/*UnitTest</include>
-                                <!-- <include>**/*IntegrationTest.java</include> -->
                             </includes>
                             <excludes>
                                 <exclude>**/*IntegrationTest.java</exclude>
