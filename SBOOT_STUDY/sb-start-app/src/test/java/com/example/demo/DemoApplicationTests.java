@@ -2,6 +2,7 @@ package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,16 @@ class DemoApplicationTests {
 		log.info("My Bean name is: {}!", myBean.getBeanName());
 		assertThat(myBean).isNotNull();
 		assertThat(myBean.getBeanName()).isEqualTo("Bar Bean");
+	}
+	
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		log.info("== BEFORE ALL ==");
+		log.trace("- TRACE LEVEL IS DISABLED !");
+		log.debug("- DEBUG");
+		log.info("- INFO");
+		log.warn("- WARN");
+		log.error("- ERROR");
 	}
 
 }

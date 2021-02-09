@@ -2,11 +2,10 @@ package sboot.data.jpa;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import org.junit.jupiter.api.BeforeAll;
 //import static org.mockito.ArgumentMatchers.any;
 //import static org.mockito.Mockito.times;
 //import static org.mockito.Mockito.verify;
-//
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,17 +29,6 @@ public class CustomerRepositoryIntegrationTest {
 	@Autowired
 	private CustomerRepository repository;
 
-//	@BeforeAll - IT BREAKS THIS CLASS TESTS !!!
-//	void beforeAll() {
-	// DISABLED:
-//		log.trace("TRACE");
-//		log.debug("DEBUG");
-	// ENABLED
-//		log.info("INFO");
-//		log.warn("WARN");
-//		log.error("ERROR");
-//	}
-
 	@BeforeEach
 	void beforeEach() {
 		log.info("BEFORE_EACH");
@@ -48,9 +36,9 @@ public class CustomerRepositoryIntegrationTest {
 	}
 
 	// @formatter:off
-    @DisplayName("given aggregate with @DomainEvents,"
-        + " when do domain operation and save,"
-        + " then an event is published")
+    @DisplayName("situation,"
+        + " when do some,"
+        + " then one records in repository")
     // @formatter:on
 	@Test
 	void domainEvents() {

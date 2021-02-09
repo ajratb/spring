@@ -26,7 +26,7 @@ dependencies {
 	//annotationProcessor 'org.projectlombok:lombok'
 	//--------------------
 	//------ devtools(try for 'server' projects(web..)) ------
-//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	//
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//  testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -37,4 +37,7 @@ dependencies {
 test {
 	useJUnitPlatform()
 	testLogging.showStandardStreams = true//to see sys.output in test
+	//	onOutput { descriptor, event ->
+	//		logger.lifecycle(""+descriptor + " says: " + event.message )
+	//	}
 }
