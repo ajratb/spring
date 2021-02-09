@@ -29,7 +29,7 @@ public class Aggregate2 {
 	}
 
 	public Aggregate2(int atLeastOneButNoMoreThenThree) {
-		domainEvents = new ArrayList<>();
+		this();
 		this.times = atLeastOneButNoMoreThenThree;
 	}
 
