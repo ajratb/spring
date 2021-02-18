@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+//import static org.junit.Assert.assertNotNull;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -23,7 +25,8 @@ class DemoApplicationTests {
 	void contextLoads() {
 		log.debug("DEBUG LEVEL  IS DISABLED FROM SPRING");
 		log.info("My Bean name is: {}!", myBean.getBeanName());
-		assertThat(myBean).isNotNull();
+		assertNotNull(myBean);//using jupiter
+		assertThat(myBean).isNotNull();//using assertj
 		assertThat(myBean.getBeanName()).isEqualTo("Bar Bean");
 	}
 	
