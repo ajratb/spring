@@ -25,7 +25,7 @@ it's quite interesting project with:
 
 == data-jdbc
 
-it's only started.. see sboot-data project for example
+it's only started.. see sboot-data-jdbc project for example
 
 = Spring Boot Projects
 
