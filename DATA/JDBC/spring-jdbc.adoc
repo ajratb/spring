@@ -29,3 +29,5 @@ it's only started.. see sboot-data-jdbc project for example
 
 = Spring Boot Projects
 
+sboot-data-jdbc 
+

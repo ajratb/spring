@@ -24,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .permitAll()
                 .requestMatchers(EndpointRequest.toAnyEndpoint())
                 .hasRole("ACTUATOR").and().httpBasic();
-        //--auth user:ec0ff171-fcaf-4ad4-be31-bc6a8d336c72
+        //get credentials from console: user, ec0ff171-fcaf-4ad4-be31-bc6a8d336c72
     }
 
 }
