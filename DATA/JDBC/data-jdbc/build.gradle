@@ -20,6 +20,7 @@ dependencies {
 	implementation 'org.springframework:spring-context:5.1.1.RELEASE',
 			'org.springframework.data:spring-data-jdbc:1.1.4.RELEASE',
 			'org.postgresql:postgresql:42.1.4'
+			//'com.h2database:h2:1.4.200',
 	//	implementation files ('jdbc/postgresql-9.4.1209.jar')
 	testImplementation 'junit:junit:4.13',
 			'org.springframework:spring-test:5.2.3.RELEASE',

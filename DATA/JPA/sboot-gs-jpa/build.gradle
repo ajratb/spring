@@ -15,11 +15,11 @@ repositories {
 }
 
 dependencies {
-	// The production code uses the SLF4J logging API at compile time
-	//compile 'org.slf4j:slf4j-api:1.7.12'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa',
+			'com.h2database:h2:1.4.200',
+			'org.postgresql:postgresql:42.1.4'
 	//        compile files('jdbc/postgresql-9.4.1209.jar')
-	runtimeOnly 'com.h2database:h2'
+	//        runtimeOnly 'com.h2database:h2'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
