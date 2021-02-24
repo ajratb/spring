@@ -1,10 +1,10 @@
-= Bare Spring Projects
+== Bare Spring Projects
 
-== simple-jdbc
+=== simple-jdbc
 
 it's really simple project
 
-== ext-jdbc
+=== ext-jdbc
 
 it's quite interesting project with:
 
@@ -23,11 +23,12 @@ it's quite interesting project with:
 * even transaction management! (you can see how the method has no result if: 1) the data source has auto-commit set false 2) the methods are not transactional)
 
 
-== data-jdbc
+=== data-jdbc
 
 it's only started.. see sboot-data-jdbc project for example
 
-= Spring Boot Projects
+== Spring Boot Project
 
-sboot-data-jdbc (GS: )
+=== sboot-data-jdbc 
+from GS: Accessing Relational Data using JDBC with Spring
 

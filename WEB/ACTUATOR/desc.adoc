@@ -1,0 +1,4 @@
+
+== sboot-actuator
+
+https://www.youtube.com/watch?v=otcYECeFS6Y[Youtube-SpringDeveloper: Mastering Spring Boot's Actuator]

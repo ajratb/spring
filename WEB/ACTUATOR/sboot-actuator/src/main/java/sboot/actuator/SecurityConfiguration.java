@@ -1,7 +1,9 @@
 package sboot.actuator;
 
 import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
-import org.springframework.boot.actuate.health.HealthEndpoint;
+import org.springframework.boot.actuate.context.ShutdownEndpoint;
+import org.springframework.boot.autoconfigure.task.TaskExecutionProperties.Shutdown;
+//import org.springframework.boot.actuate.health.HealthEndpoint;
 //import org.springframework.boot.actuate.info.InfoEndpoint;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,15 +18,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().requestMatchers(EndpointRequest
-                .to(HealthEndpoint.class))
-                .permitAll()
+        http.authorizeRequests()
+//        .requestMatchers(EndpointRequest
+//                .to(HealthEndpoint.class))
+//                .permitAll()
 //                .requestMatchers(EndpointRequest
 //                .to(InfoEndpoint.class))
 //                .permitAll()
+//      .requestMatchers(EndpointRequest
+//      .to(ShutdownEndpoint.class))
+//      .permitAll()
                 .requestMatchers(EndpointRequest.toAnyEndpoint())
                 .hasRole("ACTUATOR").and().httpBasic();
         //get credentials from console: user, ec0ff171-fcaf-4ad4-be31-bc6a8d336c72
+//        http.csrf().disable();
     }
 
 }
