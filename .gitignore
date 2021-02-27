@@ -33,3 +33,7 @@
 /**/.project
 /**/.settings
 /**/.classpath
+
+/**/*.log
+/**/*.gz
+/**/*.zip

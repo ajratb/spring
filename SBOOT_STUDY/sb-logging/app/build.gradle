@@ -9,13 +9,6 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'//'11', '1.8'
 
-//lombok configuration
-// configurations {
-// 	compileOnly {
-// 		extendsFrom annotationProcessor
-// 	}
-// }
-
 repositories {
 	mavenLocal()
 	mavenCentral()
@@ -23,13 +16,6 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	
-	//------ lombok ------
-//	compileOnly 'org.projectlombok:lombok'
-//	annotationProcessor 'org.projectlombok:lombok'
-	
-	//annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
