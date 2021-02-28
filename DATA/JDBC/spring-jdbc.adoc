@@ -2,7 +2,7 @@
 
 === simple-jdbc
 
-it's really simple project
+it's really simple project using spring-jdbc
 
 === ext-jdbc
 
@@ -25,7 +25,7 @@ it's quite interesting project with:
 
 === data-jdbc
 
-it's only started.. see sboot-data-jdbc project for example
+using spring-data-jdbc
 
 == Spring Boot Project
 

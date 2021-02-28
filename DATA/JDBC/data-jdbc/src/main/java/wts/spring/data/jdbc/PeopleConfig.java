@@ -1,6 +1,7 @@
 package wts.spring.data.jdbc;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
@@ -14,11 +15,17 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@ComponentScan("wts.spring.data.jdbc")
 @EnableJdbcRepositories
+@EnableTransactionManagement // is it needed. Can i perform transactions without it?
 @PropertySource("classpath:db.properties")
-public class PeopleConfig {//extends AbstractJdbcConfiguration{ //?JdbcRepositoryConfigExtension {
+public class PeopleConfig extends AbstractJdbcConfiguration{ // that's from documentation
+	
+	// JdbcConfiguration - is it old class?(from habr 2018)
+	//?JdbcRepositoryConfigExtension { - why is it here
 
     @Autowired
     Environment environment;

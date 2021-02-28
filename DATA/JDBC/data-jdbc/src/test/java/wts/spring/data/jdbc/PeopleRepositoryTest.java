@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author ayrat
  */
 @RunWith(SpringRunner.class)
-@Transactional
+//@Transactional - do i need it here? try it when you know how to test transactions
 @ContextConfiguration(classes = PeopleConfig.class)
 public class PeopleRepositoryTest {
 
