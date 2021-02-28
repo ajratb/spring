@@ -23,7 +23,8 @@
 		</root>
 	</springProfile>
 	<springProfile name="dev">
-		<root level="warn">
+		<root level="info">
+			<appender-ref ref="STDOUT" />
 			<appender-ref ref="SPRING_LOG" />
 			<appender-ref ref="EXPERIMENT_LOG" />
 		</root>
