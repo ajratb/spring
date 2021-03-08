@@ -24,8 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:db.properties")
 public class PeopleConfig extends AbstractJdbcConfiguration{ // that's from documentation
 	
-	// JdbcConfiguration - is it old class?(from habr 2018)
-	//?JdbcRepositoryConfigExtension { - why is it here
+	// JdbcConfiguration - it seems to be old class(from habr 2018)
 
     @Autowired
     Environment environment;

@@ -31,8 +31,9 @@ public class PeopleRepositoryTest {
 //        customer.dob = LocalDate.of(1904, 5, 14);
         person.firstName = "Albert";
         person.lastName = "Schultz";
+        assertThat(person.id).isNull();
         People saved = customerRepo.save(person);
-
+        assertThat(person.id).isNotNull();//!!!
         assertThat(saved.id).isNotNull();
 
         saved.firstName = "Hans Albert";
