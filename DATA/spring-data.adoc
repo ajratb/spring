@@ -1,7 +1,30 @@
+
+= DataBase Usage
+
+== Postgres 
+
 === postgres*.properties
 
-* contains credentials for devdb
+contains credentials for devdb
 
 === In .gitignore:
 
-* postgres*.properties
+postgres*.properties
+
+== Gradle dependencies
+[source, groovy]
+----
+ implementation 'com.h2database:h2:1.4.200', 
+			//uncomment properties for using it! 
+			'org.postgresql:postgresql:42.1.4'
+----
+=== old usage
+[source, groovy]
+----
+//usage with driver jar
+compile files('jdbc/postgresql-9.4.1209.jar')
+runtimeOnly 'com.h2database:h2'
+runtime 'com.h2database:h2'
+testRuntimeOnly 'com.h2database:h2'
+testCompile 'com.h2database:h2'
+----			

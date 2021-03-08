@@ -1,17 +1,20 @@
 package ru.wts.sboot.jdbc;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 /**
  *
  * @author BikchentaevAA
  */
+@Table("CUSTOMERS") //works only if using upper-case
 public class Customer {
 
+	@Id
     private long id;
     private String firstName, lastName;
-
-    public Customer(long id, String firstName, String lastName) {
-        this.id = id;
+ 
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

@@ -26,10 +26,10 @@ public class ApplicationRunner implements CommandLineRunner {
     public void run(String... strings) throws Exception {
 
         log.info("Creating tables");
-
-        jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
-        jdbcTemplate.execute("CREATE TABLE customers("
-                + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+        //Set wrong name: _schema.sql and use this code
+//        jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
+//        jdbcTemplate.execute("CREATE TABLE customers("
+//                + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 
         // Split up the array of whole names into an array of first/last names
         List<Object[]> splitUpNames = Arrays.asList("John Woo", "Jeff Dean", "Josh Bloch", "Josh Long").stream()
@@ -44,8 +44,11 @@ public class ApplicationRunner implements CommandLineRunner {
 
         log.info("Querying for customer records where first_name = 'Josh':");
         jdbcTemplate.query(
-                "SELECT id, first_name, last_name FROM customers WHERE first_name = ?", new Object[]{"Josh"},
-                (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name"))
+                "SELECT id, first_name, last_name FROM customers WHERE first_name = ?", 
+                //new Object[]{"Josh"}, - deprecated!
+                //(rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name"))
+                new CustomerRowMapper(),
+                "Josh"//arguments varargs
         ).forEach(customer -> log.info(customer.toString()));
     }
 }

@@ -2,7 +2,7 @@
 
 === spring-jdbc-start
 
-it's really simple project using spring-jdbc
+it's very simple project using spring-jdbc
 
 === spring-jdbc-advanced
 
@@ -30,5 +30,15 @@ using spring-data-jdbc
 == Spring Boot Project
 
 === gs-sboot-jdbc 
-from GS: Accessing Relational Data using JDBC with Spring
+from GS: __Accessing Relational Data using JDBC with Spring__
 
+The main dependency **spring-boot-starter-jdbc**
+
+Working with JdbcTemplate.
+
+=== sboot-data-jdbc-start
+Created using baeldung: Introducing to Spring Data JDBC
+
+The main dependency: **spring-boot-starter-data-jdbc**
+
+Working with Repository and JdbcTemplate.
