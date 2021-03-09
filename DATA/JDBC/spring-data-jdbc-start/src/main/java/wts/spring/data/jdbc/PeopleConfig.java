@@ -22,37 +22,37 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJdbcRepositories
 @EnableTransactionManagement // is it needed. Can i perform transactions without it?
 @PropertySource("classpath:db.properties")
-public class PeopleConfig extends AbstractJdbcConfiguration{ // that's from documentation
-	
+public class PeopleConfig extends AbstractJdbcConfiguration { // that's from documentation
+
 	// JdbcConfiguration - it seems to be old class(from habr 2018)
 
-    @Autowired
-    Environment environment;
-    private final String URL = "url";
-    private final String USER = "dbuser";
-    private final String DRIVER = "driver";
-    private final String PASSWORD = "dbpassword";
+	@Autowired
+	Environment environment;
+	private final String URL = "url";
+	private final String USER = "dbuser";
+	private final String DRIVER = "driver";
+	private final String PASSWORD = "dbpassword";
 
-    @Bean
-    NamedParameterJdbcOperations operations() {
-        return new NamedParameterJdbcTemplate(pgDataSource());
-    }
+	@Bean
+	PlatformTransactionManager transactionManager() {
+		return new DataSourceTransactionManager(pgDataSource());
+	}
 
-    @Bean
-    PlatformTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(pgDataSource());
-    }
+	@Bean
+	public DataSource pgDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName(environment.getProperty(DRIVER));
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
+		dataSource.setUsername("dev");
+		// CHECK IF IT DEPENDS ON pg_hba.conf
+		dataSource.setPassword(environment.getProperty(PASSWORD));
+		return dataSource;
+	}
 
-    @Bean
-    public DataSource pgDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(environment.getProperty(DRIVER));
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
-        dataSource.setUsername("dev");
-        //CHECK IF IT DEPENDS ON pg_hba.conf 
-        dataSource.setPassword(environment.getProperty(PASSWORD));
-        return dataSource;
-    }
+	@Bean
+	NamedParameterJdbcOperations operations() {
+		return new NamedParameterJdbcTemplate(pgDataSource());
+	}
 
 //    @Bean
 //    DataSource dataSource(){

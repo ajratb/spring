@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 //import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -87,13 +89,18 @@ public class JdbcConfig {
 	/**
 	 * You can inject dataSource using @Autowired or just invoking the method.
 	 * 
-	 * In case when datasource autocommit is set 'false' - 
-	 * The modification methods will have no result if they are not @Transactional
+	 * In case when datasource autocommit is set 'false' - The modification methods
+	 * will have no result if they are not @Transactional
 	 * 
 	 * @return
 	 */
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(pgDataSource());// ds);
+	}
+
+	@Bean
+	NamedParameterJdbcOperations operations() {
+		return new NamedParameterJdbcTemplate(pgDataSource());
 	}
 }
