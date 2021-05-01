@@ -19,7 +19,7 @@
 /**/gradle.properties
 /**/*.swp
 /**/*oauth*.properties
-!gradle/wrapper/gradle-wrapper.jar
+!/**/gradle/wrapper/gradle-wrapper.jar
 
 # Eclipse
 /**/bin
