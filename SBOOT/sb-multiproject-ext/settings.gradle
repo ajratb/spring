@@ -1,0 +1,4 @@
+rootProject.name = 'sb-multiproject-ext'
+//rootProject.name = 'sb-gs-multi-module'
+include 'library'
+include 'application'
