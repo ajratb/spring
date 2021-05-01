@@ -1,8 +1,5 @@
-# Netbeans
-/**/.nb-gradle/
-/**/build/
-/**/nbproject/private/
-/**/dist/
+!**/src/main/**
+!**/src/test/**
 
 # Maven
 /**/log/
@@ -22,18 +19,36 @@
 /**/gradle.properties
 /**/*.swp
 /**/*oauth*.properties
+!gradle/wrapper/gradle-wrapper.jar
 
 # Eclipse
 /**/bin
 
 # Misc files
 /**/log.txt
+/**/*.log
+/**/*.gz
+/**/*.zip
 
 # VS Code
 /**/.project
 /**/.settings
 /**/.classpath
+/**/.vscode/
 
-/**/*.log
-/**/*.gz
-/**/*.zip
+### STS ###
+/**/.apt_generated
+/**/.classpath
+/**/.factorypath
+/**/.project
+/**/.settings
+/**/.springBeans
+/**/.sts4-cache
+
+# Netbeans
+/**/.nb-gradle/
+/**/build/
+/**/nbproject/private/
+/**/dist/
+/**/nbbuild/
+/**/nbdist/
