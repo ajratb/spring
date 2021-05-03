@@ -1,3 +1,16 @@
+/**/.gradle/
+/**/gradlew
+/**/gradlew.bat
+/**/gradle/
+/**/gradle.properties
+/**/*.swp
+/**/*oauth*.properties
+!/**/gradle/wrapper/gradle-wrapper.jar
+
+!**/src/main/**
+/**/application-oauth2.properties
+!**/src/test/**
+
 # Maven
 /**/log/
 /**/target/
@@ -8,15 +21,6 @@
 *.iws
 *.jar
 /**/out/
-
-/**/.gradle/
-/**/gradlew
-/**/gradlew.bat
-/**/gradle/
-/**/gradle.properties
-/**/*.swp
-/**/*oauth*.properties
-!/**/gradle/wrapper/gradle-wrapper.jar
 
 # Eclipse
 /**/bin
