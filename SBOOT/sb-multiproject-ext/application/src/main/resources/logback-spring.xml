@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <configuration scan="true"> -->
+<configuration>
+	<!-- use Spring default values -->
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="./logback-file-appender.xml" />
+	<include resource="./logback-another-file-appender.xml" />
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>utf8</charset>
+		</encoder>
+	</appender>
+
+	<springProfile name="prod">
+		<root level="info">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="SPRING_LOG" />
+		</root>
+	</springProfile>
+	<springProfile name="dev">
+		<root level="info">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="SPRING_LOG" />
+			<appender-ref ref="EXPERIMENT_LOG" />
+		</root>
+	</springProfile>
+</configuration>

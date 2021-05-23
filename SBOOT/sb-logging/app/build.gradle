@@ -1,8 +1,10 @@
+//import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
 plugins {
-	//updated 2021-02-27
-	id 'org.springframework.boot' version '2.4.3'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    //updated 2021-02-27
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
 }
 
 group = 'com.example'
@@ -10,19 +12,30 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'//'11', '1.8'
 
 repositories {
-	mavenLocal()
-	mavenCentral()
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
-	useJUnitPlatform()
-	testLogging.showStandardStreams = true//to see sys.output in test
-	//	onOutput { descriptor, event ->
-	//		logger.lifecycle(""+descriptor + " says: " + event.message )
-	//	}
+    useJUnitPlatform()
+
+	testLogging {
+		showStandardStreams = true
+		exceptionFormat = 'short'//'full'? You can use org.gradle.api.tasks.testing.logging.TestExceptionFormat(with import)
+		events = ["passed", "failed", "skipped"]//try to with or without
+	}
+
+    //testLogging.showStandardStreams = true//to see sys.output in test
+	//testLogging.events("passed", "failed", "skipped")
+	//testLogging.exceptionFormat = TestExceptionFormat.FULL//add: import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+
+    //	onOutput { descriptor, event ->
+    //		logger.lifecycle(""+descriptor + " says: " + event.message )
+    //	}
+
 }
