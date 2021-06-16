@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("wts.spring.data.jdbc")
 @EnableJdbcRepositories
 @EnableTransactionManagement // is it needed. Can i perform transactions without it?
-@PropertySource("classpath:db.properties")
+@PropertySource("classpath:postgres-dev.properties")
 public class PeopleConfig extends AbstractJdbcConfiguration { // that's from documentation
 
 	// JdbcConfiguration - it seems to be old class(from habr 2018)
