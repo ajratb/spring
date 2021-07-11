@@ -1,0 +1,26 @@
+plugins {
+	//	id 'java'
+	id 'application'
+	//    id 'idea'
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+//mainClassName='spring.examples.base.MainApp'
+application{
+	mainClass = 'spring.examples.base.MainApp'
+}
+
+dependencies {
+	implementation 'org.springframework:spring-context:5.3.3'
+	testImplementation	'org.springframework:spring-test:5.3.3'
+//	testImplementation 'junit:junit:4.12'
+	//use jupiter eclipse compatible version
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+}

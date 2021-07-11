@@ -1,4 +1,4 @@
-== spring-events
+== spring-events-baeldung
 
 see baeldung Spring Events
 https://www.baeldung.com/spring-events
