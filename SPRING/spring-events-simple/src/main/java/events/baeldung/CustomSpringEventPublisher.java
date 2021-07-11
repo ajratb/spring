@@ -1,4 +1,4 @@
-package spring.examples.events_usage;
+package events.baeldung;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;

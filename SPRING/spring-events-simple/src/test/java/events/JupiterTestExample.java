@@ -1,4 +1,4 @@
-package spring.examples.events_usage;
+package events;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package spring.examples.events_usage;
+package events.baeldung;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
