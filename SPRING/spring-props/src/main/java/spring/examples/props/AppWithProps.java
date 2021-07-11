@@ -1,4 +1,4 @@
-package spring.examples.props_usage;
+package spring.examples.props;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 //import org.springframework.stereotype.Repository;
 
 @Component // to put instance in context. You also can use @Service, @Repository
+//@PropertySource({"classpath:persistence-{$envTarget:mysql}.properties"}) - it's not working
 @PropertySource("classpath:app.properties")//for using @Value
 public class AppWithProps {
 

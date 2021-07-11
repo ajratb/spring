@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import spring.examples.base.beans.MyService;
 import spring.examples.base.beans.Student;
-import spring.examples.props_usage.Message;
+import spring.examples.props.Message;
 
 @Component//or Service or Repository
 public class MainApp {

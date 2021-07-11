@@ -1,4 +1,4 @@
-package spring.examples.props_usage;
+package spring.examples.props;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -13,7 +13,7 @@ import spring.examples.base.beans.Student;
 
 @Configuration
 @ComponentScan("spring.examples.base")
-@Import({spring.examples.props_usage.AppWithPropsConf.class, AnotherConfig.class})//AnotherConfig.class added just for example!
+@Import({spring.examples.props.AppWithPropsConf.class, AnotherConfig.class})//AnotherConfig.class added just for example!
 public class AppConfig {
 
 	@Bean

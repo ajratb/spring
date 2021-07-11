@@ -1,4 +1,4 @@
-package spring.examples.props_usage;
+package spring.examples.props;
 
 /**
  *

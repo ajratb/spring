@@ -1,6 +1,7 @@
-package spring.examples.props_usage;
+package spring.examples.props;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,17 +13,20 @@ import org.springframework.core.env.Environment;
  * @author BikchentaevAA
  */
 @Configuration
-@ComponentScan("wts.props")
+@ComponentScan("spring.examples.props")
 @PropertySource("classpath:app.properties")
 public class AppWithPropsConf {
 
-	@Autowired
-	Environment env;
+//	@Autowired
+//	Environment env;
+	
+	@Value("${msg}") String msg;
 
 	//
 	@Bean
 	Message message() {
-		return new Message(env.getProperty("msg"));
+		return new Message(msg);
+//		return new Message(env.getProperty("msg"));
 	}
 
 }
