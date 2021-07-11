@@ -39,5 +39,4 @@ class DemoApplicationTests {
 		log.warn("- WARN");
 		log.error("- ERROR");
 	}
-
 }

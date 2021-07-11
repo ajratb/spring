@@ -18,5 +18,4 @@ public class FooBean implements MyBean {
 		StringBuilder sb = new StringBuilder("It's FooBean with name: ").append(name).append("!");
 		return sb.toString();
 	}
-
 }
