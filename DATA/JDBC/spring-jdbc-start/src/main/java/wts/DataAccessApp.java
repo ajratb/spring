@@ -26,7 +26,7 @@ public class DataAccessApp {
 			SimpleDao dao = (SimpleDao) ctx.getBean(SimpleDao.class);// mainApp - follow convention!
 
 			int result = dao.getRowsCount();
-			System.out.println(result);
+			System.out.println("There are " + result + " rows in database");
 		}
 	}
 }

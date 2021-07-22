@@ -20,23 +20,7 @@ public class SpringJdbcConfig {
 	
 	@Autowired
 	Environment env;
-	
-	private final String USER = "dbuser";
-	private final String PASSWORD = "dbpassword";
 
-	@Primary
-	@Bean
-	public DataSource pgDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
-		dataSource.setUsername(env.getProperty(USER));// "dev"
-		// CHECK IF IT DEPENDS ON pg_hba.conf
-		dataSource.setPassword(env.getProperty(PASSWORD));
-		return dataSource;
-	}
-
-//	@Primary
 	@Bean
 	public DataSource dataSource() {
 		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
@@ -46,4 +30,18 @@ public class SpringJdbcConfig {
 				.build();
 	}
 
+//	private final String USER = "dbuser";
+//	private final String PASSWORD = "dbpassword";
+
+//	@Primary
+//	@Bean
+//	public DataSource pgDataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//		dataSource.setUrl("jdbc:postgresql://localhost:5432/devdb");
+//		dataSource.setUsername(env.getProperty(USER));// "dev"
+//		// CHECK IF IT DEPENDS ON pg_hba.conf
+//		dataSource.setPassword(env.getProperty(PASSWORD));
+//		return dataSource;
+//	}
 }
