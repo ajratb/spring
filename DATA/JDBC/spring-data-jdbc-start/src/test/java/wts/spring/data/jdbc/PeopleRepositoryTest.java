@@ -33,6 +33,8 @@ public class PeopleRepositoryTest {
         person.lastName = "Schultz";
         assertThat(person.id).isNull();
         People saved = customerRepo.save(person);
+        System.out.println("**** Person id is " + person.id);
+        System.out.println("**** SavedPerson id is " + saved.id);
         assertThat(person.id).isNotNull();//!!!
         assertThat(saved.id).isNotNull();
 

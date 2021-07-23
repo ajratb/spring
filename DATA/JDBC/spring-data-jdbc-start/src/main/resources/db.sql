@@ -5,7 +5,7 @@
 DROP TABLE people IF EXISTS;
 
 CREATE TABLE people (
-		id BIGINT auto_increment,
+		id IDENTITY NOT NULL PRIMARY KEY,-- BIGINT auto_increment,
 		age INT,
 		first_name TEXT(2147483647),
 		last_name TEXT(2147483647)

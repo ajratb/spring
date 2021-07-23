@@ -30,7 +30,7 @@ import com.zaxxer.hikari.HikariDataSource;
 public class JdbcConfig {
 
 	@Autowired
-	Environment env;
+	Environment env;// you can use @Value
 
 	private final String URL = "url";
 	private final String USER = "dbuser";
@@ -88,9 +88,10 @@ public class JdbcConfig {
 
 	/**
 	 * You can inject dataSource using @Autowired or just invoking the method.
-	 * 
+	 *
 	 * In case when datasource autocommit is set 'false' - The modification methods
 	 * will have no result if they are not @Transactional
+	 * (see datasource configuration "dataSource.setAutoCommit(false);")
 	 * 
 	 * @return
 	 */
