@@ -6,7 +6,7 @@ plugins {
 
 group = 'ru.wts'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'//'1.8'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -14,17 +14,13 @@ repositories {
 
 dependencies {
 
-	//for repositories. It's not used here
+	// for repositories usage
 	//	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc',
 			//uncomment properties for using it!
 			'org.postgresql:postgresql:42.1.4',
 			'com.h2database:h2:1.4.200'
-
-	//  compile files('jdbc/postgresql-9.4.1209.jar')
-	//	runtimeOnly 'com.h2database:h2'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

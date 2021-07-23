@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SimpleDao {
+
     JdbcTemplate jdbcTemplate;
 
     public SimpleDao(DataSource dataSource) {
@@ -17,6 +18,7 @@ public class SimpleDao {
     }
     
     public int getRowsCount(){
+
         return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM courses", Integer.class);
     }
 }

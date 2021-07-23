@@ -24,9 +24,8 @@ public class DataAccessApp {
 //        ctx.scan("wts");
 //        ctx.refresh();
 			SimpleDao dao = (SimpleDao) ctx.getBean(SimpleDao.class);// mainApp - follow convention!
-
 			int result = dao.getRowsCount();
-			System.out.println("There are " + result + " rows in database");
+			System.out.println("****** There are " + result + " rows in database");
 		}
 	}
 }

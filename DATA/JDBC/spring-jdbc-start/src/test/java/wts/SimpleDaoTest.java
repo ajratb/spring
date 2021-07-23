@@ -19,7 +19,7 @@ public class SimpleDaoTest {
     public void createSimplePerson() {
 
         int count = dao.getRowsCount();
-
+        System.out.println("***** count is: " + count);
         assertThat(count).isEqualTo(4);
     }
 }
