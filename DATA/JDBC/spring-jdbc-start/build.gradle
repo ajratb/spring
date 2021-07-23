@@ -18,7 +18,7 @@ dependencies {
     implementation 'org.springframework:spring-context:5.2.16.RELEASE',
             'org.springframework:spring-jdbc:5.2.16.RELEASE',
             'com.h2database:h2:1.4.200'
-
+    //runtimeOnly 'com.h2database:h2' - it's for spring boot !
     testImplementation 'org.springframework:spring-test:5.2.16.RELEASE',
             'junit:junit:4.13',
             'org.assertj:assertj-core:3.15.0'

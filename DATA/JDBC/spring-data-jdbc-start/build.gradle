@@ -1,16 +1,14 @@
 plugins {
-//	id 'java'
 	id 'application'
 }
 
 repositories {
-	mavenLocal()
 	mavenCentral()
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-//mainClassName='wts.spring.jdbc.MainApp'
+
 application {
 	mainClass = 'wts.spring.jdbc.MainApp'
 }
@@ -19,9 +17,9 @@ dependencies {
 
 	implementation 'org.springframework:spring-context:5.1.1.RELEASE',
 			'org.springframework.data:spring-data-jdbc:1.1.4.RELEASE',
-			'org.postgresql:postgresql:42.1.4'
-			//'com.h2database:h2:1.4.200',
-	//	implementation files ('jdbc/postgresql-9.4.1209.jar')
+//			'org.postgresql:postgresql:42.1.4'
+			'com.h2database:h2:1.4.200'
+
 	testImplementation 'junit:junit:4.13',
 			'org.springframework:spring-test:5.2.3.RELEASE',
 			'org.assertj:assertj-core:3.15.0'
