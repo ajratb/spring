@@ -20,7 +20,9 @@ it's quite interesting project with:
 
 ** h2 in-memory data source with initiation sql script
 
-* even transaction management! (you can see how the method has no result if: 1) the data source has auto-commit set false 2) the methods are not transactional)
+* even transaction management! (you can see how the method has no result if:
+** 1) the data source has auto-commit set false
+** 2) the methods are not transactional)
 
 
 === spring-data-jdbc-start
