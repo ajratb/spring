@@ -53,3 +53,5 @@
 /**/dist/
 /**/nbbuild/
 /**/nbdist/
+
+/**/*secret*.properties
