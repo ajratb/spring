@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component // to put instance in context. You also can use @Service, @Repository
 //@PropertySource({"classpath:persistence-{$envTarget:mysql}.properties"}) - it's not working
-@PropertySource("classpath:app.properties")//for using @Value
+//@PropertySource("classpath:some.properties")//for using @Value - no need if it is already defined in configuration
 public class AppWithProps {
 
 	@Autowired

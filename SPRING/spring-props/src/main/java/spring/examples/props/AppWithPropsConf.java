@@ -14,7 +14,7 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @ComponentScan("spring.examples.props")
-@PropertySource("classpath:app.properties")
+@PropertySource("some.properties")//classpath:some.properties")
 public class AppWithPropsConf {
 
 //	@Autowired
