@@ -32,3 +32,4 @@ out/
 .vscode/
 
 /**/postgres*.properties
+/**/*.mv.db
