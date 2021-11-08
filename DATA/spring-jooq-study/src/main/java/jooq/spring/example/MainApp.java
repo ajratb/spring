@@ -1,5 +1,8 @@
 package jooq.spring.example;
 
+import jooq.generated.public_.tables.Author;
+import jooq.generated.public_.tables.AuthorBook;
+import jooq.generated.public_.tables.Book;
 import org.jooq.DSLContext;
 import org.jooq.Record3;
 import org.jooq.Result;
@@ -8,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
-import test.public_.tables.Author;
-import test.public_.tables.AuthorBook;
-import test.public_.tables.Book;
+
 
 /**
  * Hello world!

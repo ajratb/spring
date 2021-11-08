@@ -22,10 +22,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan({"test.public_.tables", "jooq.spring.example"})
+@ComponentScan({ "jooq.spring.example", "jooq.generated.public_.tables"})
 @EnableTransactionManagement
 @PropertySource("config.properties")
 public class PersistenceConfiguration {
+
     @Autowired
     private Environment environment;
 

@@ -75,7 +75,7 @@
                         <groupId>com.h2database</groupId>
                         <artifactId>h2</artifactId>
                         <version>${h2.version}</version>
-<!--                        <scope>runtime</scope>-->
+                        <scope>runtime</scope>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -111,7 +111,7 @@
 <!--                            <springAnnotations>true</springAnnotations>-->
                         </generate>
                         <target>
-                            <packageName>test</packageName>
+                            <packageName>jooq.generated</packageName>
                             <directory>target/generated-sources/jooq</directory>
                         </target>
                     </generator>

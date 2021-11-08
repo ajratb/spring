@@ -8,9 +8,9 @@ import org.jooq.exception.DataAccessException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import test.public_.tables.Author;
-import test.public_.tables.AuthorBook;
-import test.public_.tables.Book;
+import jooq.generated.public_.tables.Author;
+import jooq.generated.public_.tables.AuthorBook;
+import jooq.generated.public_.tables.Book;
 
 @SpringJUnitConfig(PersistenceConfiguration.class)
 public class MainAppTest {
@@ -22,8 +22,8 @@ public class MainAppTest {
     public void shouldAnswerWithTrue() {
         assertTrue(dsl != null);
 
-        Author author = test.public_.tables.Author.AUTHOR;
-        test.public_.tables.Book book = Book.BOOK;
+        Author author = Author.AUTHOR;
+        Book book = Book.BOOK;
         AuthorBook authorBook = AuthorBook.AUTHOR_BOOK;
         dsl.insertInto(author)
                 .set(author.ID, 4)
