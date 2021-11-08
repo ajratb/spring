@@ -12,23 +12,18 @@ import test.public_.tables.Author;
 import test.public_.tables.AuthorBook;
 import test.public_.tables.Book;
 
-import java.util.concurrent.Flow;
-
 @SpringJUnitConfig(PersistenceConfiguration.class)
-public class MainAppTest
-{
+public class MainAppTest {
     @Autowired
     private DSLContext dsl;
 
 
-
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( dsl !=null );
-//        Flow flow =
-        Author author = Author.AUTHOR;
-        Book book = Book.BOOK;
+    public void shouldAnswerWithTrue() {
+        assertTrue(dsl != null);
+
+        Author author = test.public_.tables.Author.AUTHOR;
+        test.public_.tables.Book book = Book.BOOK;
         AuthorBook authorBook = AuthorBook.AUTHOR_BOOK;
         dsl.insertInto(author)
                 .set(author.ID, 4)
