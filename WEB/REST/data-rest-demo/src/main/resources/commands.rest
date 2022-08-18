@@ -1,0 +1,24 @@
+###
+GET http://localhost:8080/persons
+###
+GET http://localhost:8080/persons/1
+###
+DELETE http://localhost:8080/persons/3
+###
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "John Smith Jr"
+}
+
+
+###
+GET http://localhost:8081/customers/1?projection=myprojection2
+
+###
+GET http://localhost:8081/customers/search/findByLastname?lastname=Smith
+
+###
+GET http://localhost:8081/customer/projection?lastname=Smith
+Accept: application/json
