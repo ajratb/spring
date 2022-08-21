@@ -2,14 +2,31 @@
 GET http://localhost:8080/persons
 ###
 GET http://localhost:8080/persons/1
-###
-DELETE http://localhost:8080/persons/3
-###
+### delete
+DELETE http://localhost:8080/persons/1
+### post
 POST http://localhost:8080/persons
 Content-Type: application/json
 
 {
-  "firstName": "John Smith Jr"
+  "firstName": "John Smith Jr3",
+  "lastName": "ddee"
+}
+
+### PATCH
+PATCH http://localhost:8080/persons/3
+Content-Type: application/json
+
+{
+  "firstName": "Sophia Jones 33nd"
+}
+
+### PUT
+PUT http://localhost:8080/persons/2
+Content-Type: application/json
+
+{
+  "firstName": "Sophia Jones 33nd"
 }
 
 
