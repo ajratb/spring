@@ -29,6 +29,8 @@ Content-Type: application/json
   "firstName": "Sophia Jones 33nd"
 }
 
+### ACTUATOR
+GET http://localhost:8080/actuator
 
 ###
 GET http://localhost:8081/customers/1?projection=myprojection2
