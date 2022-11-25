@@ -1,1 +1,17 @@
-#server.port: 8080
+server.port: 8080
+
+spring.security.oauth2.client:
+  registration:
+    cbx:
+      #      username: restapi.test02@SPM
+      #      password: test@1234
+      client-id: cbx
+      client-secret: cbx@1234
+      authorization-grant-type: password
+  #      client-authentication-method: client_secret_basic
+  provider:
+    cbx:
+      #      authorization-uri: https://spm-sandbox.sourcing-cloud.com/oauth/
+      token-uri: https://spm-sandbox.sourcing-cloud.com/oauth/token
+#      username: cbx
+#      password: cbx@123

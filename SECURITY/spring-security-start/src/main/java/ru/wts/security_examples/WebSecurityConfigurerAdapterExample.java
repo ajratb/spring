@@ -17,9 +17,9 @@ public class WebSecurityConfigurerAdapterExample extends WebSecurityConfigurerAd
 //
 //        http.httpBasic();
 //    }
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+//    @Override
+//    @Bean
+//    public AuthenticationManager authenticationManagerBean() throws Exception {
+//        return super.authenticationManagerBean();
+//    }
 }
