@@ -25,6 +25,6 @@ test {
 	useJUnitPlatform()
 
 	onOutput{descriptor, event ->
-		logger.lifecycle(""+descriptor+" says: " + event.message)
+		logger.lifecycle("{} says: {}",  descriptor, event.message)
 	}
 }

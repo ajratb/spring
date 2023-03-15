@@ -1,9 +1,8 @@
-== Bare spring
-=== jdbc-transactions 
+= Spring Getting Started Example
 
-Getting started project without Spring Boot
+Authors used jdbcTemplate here.
 
-- here is a PROBLEM - should know better about spring-tx and EnableTransactionManagement
+Database table contains field "name" with constraints: varchar(5), not null. So when some of the values is not valid the whole batch is rolled back by transaction cancellation.
 
 == Spring Boot Getting Started Guide
 Managing Transactions
@@ -22,3 +21,9 @@ The guide project, but with:
 
 === ManagingTransactionsMaven
 The guide project as it is.
+
+== Bare spring jdbc-transactions
+
+Getting started project without Spring Boot
+
+- here is a PROBLEM - should know better about spring-tx and EnableTransactionManagement
