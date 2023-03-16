@@ -1,0 +1,5 @@
+
+
+1. Move content from sb-tx-gs-upd
+2. Add TransactionSynchronizationManager.isActualTransactionActive()
+invocations to see transaction is active or not
