@@ -8,7 +8,7 @@ Database table contains field "name" with constraints: varchar(5), not null. So 
 Managing Transactions
 https://spring.io/guides/gs/managing-transactions/
 
-=== sboot-transactions-gs
+=== sb-tx-gs-upd
 The guide project, but with:
 
 * TransactionTest class to see how it works when you call method from bean:
@@ -19,7 +19,7 @@ The guide project, but with:
 
 * AnotherJdbcRunner to demonstrate that it will be work automatically(by using bootRun task)
 
-=== ManagingTransactionsMaven
+=== sb-tx-gs-orig
 The guide project as it is.
 
 == Bare spring jdbc-transactions
