@@ -12,10 +12,13 @@ import java.time.LocalDate;
 @SuppressWarnings("unused")
 @Component
 @RequiredArgsConstructor
-public class BookService {
+public class BookServiceOrigin {
     public static class SomeException extends RuntimeException {}
 
     private final BookDao bookDao;
+
+
+    private BookServiceOrigin bookService;
 
     //@Transactional(rollbackFor = SomeException.class)
     @SuppressWarnings("CommentedOutCode")
@@ -37,12 +40,16 @@ public class BookService {
         System.out.println("It is long-long method.");
     }
 
+    public void setBookService(BookServiceOrigin bookService) {
+        this.bookService = bookService;
+    }
+
     @Transactional
     public void testLogicalTransaction() {
-        printLastBook();
+        bookService.printLastBook();
         bookDao.addBook("Java", Date.valueOf(LocalDate.of(2015, 5, 1)));
         try {
-            transactionWithException();
+            bookService.transactionWithException();
             // inside transaction, we get an exception,
             // and it is marking exception for rollback-only:
             // setRollbackOnly(true)
@@ -53,6 +60,6 @@ public class BookService {
         }
 
         System.out.println("****** Here we proceed...");
-        printLastBook();
+        bookService.printLastBook();
     }
 }
