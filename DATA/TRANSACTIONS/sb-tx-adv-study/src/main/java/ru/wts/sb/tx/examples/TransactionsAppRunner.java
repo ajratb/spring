@@ -1,4 +1,4 @@
-package com.example.demo;
+package ru.wts.sb.tx.examples;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -10,6 +10,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import org.springframework.util.Assert;
 
 //@Primary
+@SuppressWarnings("CommentedOutCode")
 @Slf4j
 @Component
 //("tr")
@@ -24,7 +25,7 @@ public class TransactionsAppRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         log.info("Transaction open? : {}", TransactionSynchronizationManager.isActualTransactionActive());
         bookingService.book("Alice", "Bob", "Carol");
         Assert.isTrue(bookingService.findAllBookings().size() == 3,

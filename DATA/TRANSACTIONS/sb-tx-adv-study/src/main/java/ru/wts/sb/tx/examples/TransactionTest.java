@@ -1,8 +1,6 @@
-package com.example.demo;
+package ru.wts.sb.tx.examples;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,6 +13,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * @author ayrat
  */
 
+@SuppressWarnings("SqlNoDataSourceInspection")
 @Slf4j
 @Component
 public class TransactionTest {
