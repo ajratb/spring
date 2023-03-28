@@ -1,0 +1,13 @@
+= Advanced Study of Spring Transactions
+
+== sb-tx-research
+
+взял код из getting-started и вставил 'TransactionSynchronizationManager.isActualTransactionActive()' для отображения статуса исполнения в транзакции.
+(идея взята из  https://www.youtube.com/watch?v=4BD6pF7dkkc&feature=youtu.be[видео])
+
+== sb-tx-adv-study
+проект для разбора
+
+== sb-tx-db
+Для того чтобы разобраться sb-tx-adv-study создал с нуля и начал заполнять
+
