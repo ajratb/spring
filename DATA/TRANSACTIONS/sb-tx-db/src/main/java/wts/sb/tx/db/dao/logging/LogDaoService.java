@@ -15,37 +15,57 @@ public class LogDaoService {
 
 	private final LogDao logDao;
 
-	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	@Transactional(propagation=Propagation.SUPPORTS)
 	public void writeLogInNewTransaction(String message) {
 		logDao.save(new Log(message));
 	}
 
 
-	@Transactional(propagation=Propagation.NOT_SUPPORTED)
-	public void addSeparateLogsNotSupported() {
-		logDao.save(new Log("check from not supported 1"));
-//		if (true) throw new RuntimeException();
-//		logDao.save(new Log("check from not supported 4"));
+	@Transactional
+	public void addSeparateLogsWithoutNewTxWithinTx() {
+		addSeparateLogsWithoutNewTx();
+		// no need:
+//		throw new RuntimeException();
 	}
 
-
-
 	@Transactional
-	public void addSeparateLogsSupportsWithTransaction() {
-		addSeparateLogsSupports();
-		//throw new RuntimeException();
+	public void addSeparateLogsWithNewTxWithinTx() {
+		addSeparateLogsWithNewTx();
+		// no need:
+//		throw new RuntimeException();
 	}
 
 	/*
+	 * For SUPPORTS, NOT_SUPPORTED and NEVER propagations
 	 * If it is used separately then one record will be added to database
 	 */
 	@Transactional(propagation=Propagation.SUPPORTS)
-	public void addSeparateLogsSupports() {
+	public void addSeparateLogsWithoutNewTx() {
 		logDao.save(new Log("check from supports 1"));
 		throw new RuntimeException();
 //		if (true) throw new RuntimeException();
 //		logDao.save(new Log("check from supports 2"));
 	}
+
+	/*
+	 * For MANDATORY, REQUIRES, REQUIRES_NEW and NESTED propagations
+	 * No record will be added to database anyway!
+	 */
+	@Transactional(propagation=Propagation.REQUIRED)
+	public void addSeparateLogsWithNewTx() {
+		logDao.save(new Log("check from supports 1"));
+		throw new RuntimeException();
+//		if (true) throw new RuntimeException();
+//		logDao.save(new Log("check from supports 2"));
+	}
+
+//	@Transactional(propagation=Propagation.NOT_SUPPORTED)
+//	public void addSeparateLogsNotSupported() {
+//		logDao.save(new Log("check from not supported 1"));
+//		throw new RuntimeException();
+////		if (true) throw new RuntimeException();
+////		logDao.save(new Log("check from not supported 4"));
+//	}
 
 	@Transactional(propagation=Propagation.NEVER)
 	public int showLogs() {
