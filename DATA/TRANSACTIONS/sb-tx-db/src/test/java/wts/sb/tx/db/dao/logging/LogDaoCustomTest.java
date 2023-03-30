@@ -14,12 +14,12 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-class LogDaoServiceTest {
+class LogDaoCustomTest {
 
     @Autowired
     private LogDao logDao;
     @Autowired
-    private LogDaoService logDaoService;
+    private LogDaoCustom logDaoCustom;
 
     @BeforeEach
     void setUp() {
@@ -28,17 +28,17 @@ class LogDaoServiceTest {
 
     @ParameterizedTest
     @MethodSource("provideAddLogsConsumer")
-    public void testAddSeparateLogsWithinTx(Consumer<LogDaoService> lds) {
+    public void testAddSeparateLogsWithinTx(Consumer<LogDaoCustom> lds) {
 
         assertThrows(
-                RuntimeException.class, ()-> lds.accept(logDaoService));
-        Assertions.assertThat(logDaoService.showLogs()).isZero();
+                RuntimeException.class, ()-> lds.accept(logDaoCustom));
+        Assertions.assertThat(logDaoCustom.showLogs()).isZero();
     }
 
-    private static Stream<Consumer<LogDaoService>> provideAddLogsConsumer() {
+    private static Stream<Consumer<LogDaoCustom>> provideAddLogsConsumer() {
         return Stream.of(
-                LogDaoService::addSeparateLogsWithNewTxWithinTx,
-                LogDaoService::addSeparateLogsWithoutNewTxWithinTx
+                LogDaoCustom::addSeparateLogsWithNewTxWithinTx,
+                LogDaoCustom::addSeparateLogsWithoutNewTxWithinTx
         );
     }
 
@@ -48,9 +48,9 @@ class LogDaoServiceTest {
         // addSeparateLogsSupports is working with no transaction
         assertThrows(
                 RuntimeException.class,
-                logDaoService::addSeparateLogsWithoutNewTx);
+                logDaoCustom::addSeparateLogsWithoutNewTx);
         // no transaction - first record is added in the log even after exception
-        Assertions.assertThat(logDaoService.showLogs()).isEqualTo(1);
+        Assertions.assertThat(logDaoCustom.showLogs()).isEqualTo(1);
     }
 
     @Test
@@ -59,8 +59,8 @@ class LogDaoServiceTest {
         // addSeparateLogsSupports is working with no transaction
         assertThrows(
                 RuntimeException.class,
-                logDaoService::addSeparateLogsWithNewTx);
+                logDaoCustom::addSeparateLogsWithNewTx);
         // no transaction - first record is added in the log even after exception
-        Assertions.assertThat(logDaoService.showLogs()).isZero();
+        Assertions.assertThat(logDaoCustom.showLogs()).isZero();
     }
 }
