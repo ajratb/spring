@@ -63,4 +63,8 @@ public class BookDaoCustom {
         logDaoCustom.showLogs();
     }
 
+    public BookDao getDao() {
+        return bookDao;
+    }
+
 }
