@@ -5,9 +5,7 @@
 взял код из getting-started и вставил 'TransactionSynchronizationManager.isActualTransactionActive()' для отображения статуса исполнения в транзакции.
 (идея взята из  https://www.youtube.com/watch?v=4BD6pF7dkkc&feature=youtu.be[видео])
 
-== sb-tx-adv-study
-проект для разбора
+== sb-tx-adv-course
 
-== sb-tx-db
-Для того чтобы разобраться sb-tx-adv-study создал с нуля и начал заполнять
-
+Разобрался с проектом из курса (Module 3, Transactions)
+Не получается так работать с репозиториями как у них (и в документации): BookDao exts JpaRepo, BookDaoCustom; BookDaoImpl impl BookDaoCustom
