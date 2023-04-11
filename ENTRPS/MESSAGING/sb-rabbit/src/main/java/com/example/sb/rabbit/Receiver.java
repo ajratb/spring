@@ -11,6 +11,7 @@ public class Receiver {
 
     public void receiveMessage(String message) {
         System.out.println("Received <" + message + ">");
+        // if comment countDown() out then await timer will work
         latch.countDown();
     }
 
