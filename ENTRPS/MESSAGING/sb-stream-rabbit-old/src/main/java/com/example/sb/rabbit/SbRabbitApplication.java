@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@EnableConfigurationProperties(RabbitConfig.class)
 public class SbRabbitApplication {
 
 	public static void main(String[] args) {

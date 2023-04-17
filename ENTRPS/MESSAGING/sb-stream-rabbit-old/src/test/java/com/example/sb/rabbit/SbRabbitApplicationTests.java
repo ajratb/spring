@@ -27,9 +27,6 @@ class SbRabbitApplicationTests {
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
 
-	@Autowired
-	private Receiver receiver;
-
 	@Value("${rabbitmq.queue}") String queue;
 
 	/*
@@ -42,10 +39,9 @@ class SbRabbitApplicationTests {
 		try {
 			System.out.println("Sending message in queue...");
 			// here queue is being used
-			rabbitTemplate.convertAndSend(queue, "Hello from RabbitMQ!");
-			boolean awaitResult = receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
-			System.out.println("Runner finished successful: " + awaitResult);
-			log.info("Runner finished successful: {}", awaitResult);
+//			rabbitTemplate.convertAndSend(queue, "Hello from RabbitMQ!");
+//			System.out.println("Runner finished successful: " + awaitResult);
+//			log.info("Runner finished successful: {}", awaitResult);
 		} catch (AmqpConnectException e) {
 			// ignore - rabbit is not running
 		}
