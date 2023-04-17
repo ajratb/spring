@@ -12,7 +12,11 @@ public class NameProcessorConfiguration {
 	// tag::processname[]
 	@Bean
 	public Function<String, Person> processName() {
-		return name -> new Person(name, new Date().getTime());
+		System.out.println();
+		return name -> {
+			System.out.println("name: " + name);
+			return new Person(name, new Date().getTime());
+		};
 	}
 	// end::processname[]
 }
