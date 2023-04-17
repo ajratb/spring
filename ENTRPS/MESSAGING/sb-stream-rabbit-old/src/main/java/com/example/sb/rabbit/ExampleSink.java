@@ -14,5 +14,5 @@ public interface ExampleSink {
      * @return input channel.
      */
     @Input(ExampleSink.INPUT)
-    MessageChannel input();
+    MessageChannel example();
 }
