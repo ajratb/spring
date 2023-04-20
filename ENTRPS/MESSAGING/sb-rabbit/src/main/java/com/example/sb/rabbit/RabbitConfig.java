@@ -15,11 +15,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties(prefix = "rabbitmq")
-@Getter @Setter
+@Getter
+@Setter
 public class RabbitConfig {
-
-//    static final String topicExchangeName = "spring-boot-exchange";
-//    static final String queueName = "spring-boot";
 
     private String topic;
     private String queue;
@@ -39,9 +37,13 @@ public class RabbitConfig {
         return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
     }
 
+
+    /**
+     * Try different sending in Runner and suitable receiver methods.
+     */
     @Bean
     MessageListenerAdapter listenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
+        return new MessageListenerAdapter(receiver, "receiveSpringMessage");
     }
 
     @Bean
