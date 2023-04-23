@@ -14,4 +14,8 @@ public class NameSourceConfiguration {
 		return () -> "Christopher Pike";
 	}
 	// end::supplyname[]
+	@Bean
+	public Supplier<String> supplyAnotherName() {
+		return () -> "Serg Gorely";
+	}
 }
