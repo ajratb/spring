@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.2'
 	id 'io.spring.dependency-management' version '1.1.2'
+//	id 'org.liquibase.gradle' version '2.0.4'
 }
 
 group = 'com.example'
@@ -22,8 +23,29 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	liquibaseRuntime 'org.liquibase:liquibase-core:4.20.0'
+//	liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+//	liquibaseRuntime 'info.picocli:picocli:4.6.1'
+//	liquibaseRuntime 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// it doesn't work
+//liquibase {
+//	activities {
+//		main {
+//			driver "org.postgresql.Driver"
+//			url "jdbc:postgresql://localhost:5432/testdb?currentSchema=public"
+//			username "postgres"
+//			password "h3EHJi"
+//			changeLogFile "src/main/resources/config/liquibase/master.yaml"
+//			defaultSchemaName "public"
+//			logLevel "debug"
+//			classpath "src/main/resources/"
+//		}
+//		runList = "main"
+//	}
+//}
