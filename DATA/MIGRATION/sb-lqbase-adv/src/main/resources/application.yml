@@ -1,0 +1,10 @@
+#spring.profiles.default=h2
+
+#spring.profiles.default=postgres
+#spring.liquibase.change-log=classpath:db/changelog/changelog.xml
+
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/changelog.xml
+  profiles:
+    default: h2
