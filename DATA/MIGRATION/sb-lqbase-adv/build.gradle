@@ -53,7 +53,7 @@ liquibase {
 			url "jdbc:postgresql://localhost:5432/testdb?currentSchema=public"
 			username "postgres"
 			password prop['postgres.password']
-			changeLogFile "src/main/resources/db/changelog/changelog.xml"
+			changeLogFile "src/main/resources/db/changelog/dbchangelog.yaml"
 			defaultSchemaName "public"
 			logLevel "debug"
 			//classpath "src/main/resources/"

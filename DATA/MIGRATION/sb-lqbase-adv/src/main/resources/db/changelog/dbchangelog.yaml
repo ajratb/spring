@@ -1,0 +1,30 @@
+databaseChangeLog:
+- changeSet:
+    id: 1690210139151-1
+    author: ayr (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: genre_pkey
+            name: genre_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: genre_name
+            type: VARCHAR(64)
+        tableName: genre
+- changeSet:
+    id: 1690210139151-2
+    author: ayr (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: genre_name
+        constraintName: genre_genre_name_key
+        tableName: genre
+
