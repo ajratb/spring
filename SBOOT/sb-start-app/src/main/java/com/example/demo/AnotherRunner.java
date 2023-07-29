@@ -26,14 +26,19 @@ public class AnotherRunner implements CommandLineRunner {
 //	@Qualifier("second")
 	MyBean bean;
 
-	@Value("${some}") String someValue;
+    @Value("${some}")
+    String someValue;
+    @Value("${path}")
+    String path;
 
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("START ANOTHER_RUNNER");
-		System.out.println(compo.sayWhoIAm());
-		System.out.println("My bean is: " + bean.getBeanName() + "\n");
-		System.out.println(someValue);
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("START ANOTHER_RUNNER");
+        System.out.println(compo.sayWhoIAm());
+        System.out.println("My bean is: " + bean.getBeanName() + "\n");
+        System.out.println(someValue);
+        System.out.println("\nPATH:\n" + path);
+        System.out.println("\n");
+    }
 
 }
