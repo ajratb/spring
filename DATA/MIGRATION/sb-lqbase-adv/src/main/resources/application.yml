@@ -5,6 +5,8 @@
 
 spring:
   liquibase:
-    change-log: classpath:db/changelog/changelog.xml
+    change-log: classpath:db/changelog/sql/changelogs-root.yaml
+#    change-log: classpath:db/changelog/changelog.xml
+#    change-log: classpath:db/changelog/changelog.xml
   profiles:
     default: h2
