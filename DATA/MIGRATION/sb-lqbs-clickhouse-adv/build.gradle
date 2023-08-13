@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+//	flatDir {
+//		dirs 'lib'
+//	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.postgresql:postgresql:42.6.0'
+	implementation 'com.clickhouse:clickhouse-jdbc:0.4.6'
+	implementation 'org.liquibase:liquibase-core'
+//	implementation fileTree(dir: 'lib', include: '*.jar')
+	implementation 'org.lz4:lz4-java:1.8.0'
+	implementation 'com.mediarithmics:liquibase-clickhouse:0.7.2'
+	implementation 'io.github.pelenthium:clickhouse-dialect-spring-boot-starter:1.2.0'
+//	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
