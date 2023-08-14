@@ -1,4 +1,4 @@
-package com.example.sblqbsclickhouse;
+package com.example.sblqbsclickhouse.postgres.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,12 +6,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("simple")
+@Table("public.genre")
 @Getter @Setter
-public class ClickHouseEntity {
+public class PostgresEntity {
     @Id
-    @Column("WatchID")
-    private Long watchId;
-    @Column("Title")
-    private String title;
+    @Column("genre_id")
+    private Long genreId;
+    @Column("genre_name")
+    private String genreName;
 }
