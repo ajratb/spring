@@ -1,7 +1,7 @@
 --liquibase formatted sql
 --changeset johndoe:create-dummy-table
 
-CREATE TABLE tutorial.dummytable
+CREATE TABLE dummy.dummytable
 (
 
     `WatchID` UInt64,
