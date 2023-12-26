@@ -1,0 +1,4 @@
+PREFER SPRINGDOC !
+
+Springdoc: springdoc-openapi-study
+Springfox: sboot-swagger
