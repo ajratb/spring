@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 public class RabbitConfig {
 
-    private String topic;
+
     private String queue;
 
     @Bean
@@ -27,15 +27,6 @@ public class RabbitConfig {
         return new Queue(queue, false);
     }
 
-    @Bean
-    TopicExchange exchange() {
-        return new TopicExchange(topic);
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
-    }
 
 
     /**

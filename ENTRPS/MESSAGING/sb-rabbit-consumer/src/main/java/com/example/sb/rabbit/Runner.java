@@ -13,14 +13,14 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Slf4j
 public class Runner implements CommandLineRunner {
-    private final RabbitTemplate rabbitTemplate;
+//    private final RabbitTemplate rabbitTemplate;
     private final Receiver receiver;
 
-    @Value("${rabbitmq.topic}") String topic;
+//    @Value("${rabbitmq.topic}") String topic;
 
-    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate) {
+    public Runner(Receiver receiver) {//, RabbitTemplate rabbitTemplate) {
         this.receiver = receiver;
-        this.rabbitTemplate = rabbitTemplate;
+//        this.rabbitTemplate = rabbitTemplate;
     }
 
     /**
@@ -33,7 +33,7 @@ public class Runner implements CommandLineRunner {
         System.out.println("Sending message...");
         // change string-message by message-from-builder
 //        rabbitTemplate.convertAndSend(topic, "foo.bar.baz", org.springframework.amqp.core.MessageBuilder.withBody("Hello from RabbitMQ!".getBytes()).build());
-        rabbitTemplate.convertAndSend(topic, "foo.bar.baz", MessageBuilder.withPayload("Hello from RabbitMQ!").build());
+//        rabbitTemplate.convertAndSend(topic, "foo.bar.baz", MessageBuilder.withPayload("Hello from RabbitMQ!").build());
 //        rabbitTemplate.convertAndSend(topic, "foo.bar.baz", "Hello from RabbitMQ!");
         boolean awaitResult = receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
         log.info("Runner finished successful: {}", awaitResult);

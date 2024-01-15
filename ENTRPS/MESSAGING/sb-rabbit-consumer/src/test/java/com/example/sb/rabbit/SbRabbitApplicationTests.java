@@ -24,8 +24,8 @@ class SbRabbitApplicationTests {
 	@MockBean
 	private Runner runner;
 
-	@Autowired
-	private RabbitTemplate rabbitTemplate;
+//	@Autowired
+//	private RabbitTemplate rabbitTemplate;
 
 	@Autowired
 	private Receiver receiver;
@@ -42,7 +42,7 @@ class SbRabbitApplicationTests {
 		try {
 			System.out.println("Sending message in queue...");
 			// here queue is being used
-			rabbitTemplate.convertAndSend(queue, "Hello from RabbitMQ!");
+//			rabbitTemplate.convertAndSend(queue, "Hello from RabbitMQ!");
 			boolean awaitResult = receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
 			System.out.println("Runner finished successful: " + awaitResult);
 			log.info("Runner finished successful: {}", awaitResult);
