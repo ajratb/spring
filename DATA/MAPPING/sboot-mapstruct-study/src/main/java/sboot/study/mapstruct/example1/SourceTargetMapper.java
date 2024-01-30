@@ -1,9 +1,6 @@
 package sboot.study.mapstruct.example1;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 
 @SuppressWarnings("unused")
@@ -14,7 +11,17 @@ import org.springframework.stereotype.Component;
 )
 public interface SourceTargetMapper {
     @Mapping(target = "targetValue", source = "sourceValue")
-    @Mapping(target = "stringFromLongValue", source = "longForStringValue", defaultExpression  = "java(Long.toString())")
+    @Mapping(target = "stringFromLongValue", source = "longForStringValue", defaultExpression = "java(Long.toString())")
     SimpleTarget sourceToTarget(SimpleSource source);
+
+    @InheritInverseConfiguration
     SimpleSource targetToSource(SimpleTarget destination);
+
+//    @Mapping(target = "targetValue", source = "sourceValue")
+//    @Mapping(target = "stringFromLongValue", source = "longForStringValue", defaultExpression = "java(Long.toString())")
+//@InheritInverseConfiguration
+//@Mapping(target = "targetValue", ignore = true)
+//@Mapping(target = "stringFromLongValue", ignore = true)
+//    void updateTargetFromSource( SimpleSource source,
+//                                 @MappingTarget SimpleTarget target);
 }
