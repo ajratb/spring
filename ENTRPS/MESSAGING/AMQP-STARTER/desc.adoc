@@ -1,0 +1,9 @@
+== sb-rabbit-producer
+If use only topic for the first time it creates topic in rabbit and sends an unroutable message, which will be dropped.
+You can use queue and binding for key in configuration. So at the first time it creates topic, queue, and binding between them for routing key.
+
+== sb-rabbit-consumer
+Creates sb-queue
+
+
+== sb-rabbit-consumer-adv
