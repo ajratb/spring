@@ -6,4 +6,4 @@
  * https://mapstruct.org/documentation/dev/reference/html/#direct-field-mappings
  * (3.7. Mappings with direct field access)
  */
-package sboot.study.mapstruct.example1;
+package sboot.study.mapstruct.baeldung_start;

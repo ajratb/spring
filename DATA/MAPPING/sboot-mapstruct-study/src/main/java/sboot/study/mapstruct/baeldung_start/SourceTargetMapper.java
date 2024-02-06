@@ -1,4 +1,4 @@
-package sboot.study.mapstruct.example1;
+package sboot.study.mapstruct.baeldung_start;
 
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;

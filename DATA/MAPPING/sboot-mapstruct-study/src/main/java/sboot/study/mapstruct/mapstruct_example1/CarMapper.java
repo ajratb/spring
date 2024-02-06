@@ -1,4 +1,4 @@
-package sboot.study.mapstruct.example4;
+package sboot.study.mapstruct.mapstruct_example1;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
