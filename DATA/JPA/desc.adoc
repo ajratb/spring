@@ -1,0 +1,3 @@
+sboot-jpa-extended
+started, but not finished
+Empty DomainEvent and TestEventHandler with @TransactionalEventListener (it is also empty)

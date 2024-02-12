@@ -1,10 +1,10 @@
-package ru.wts.sb.examples;
+package sboot.jpa.links.study;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SbDbExampleApplicationTests {
+class JpaLinksApplicationTests {
 
 	@Test
 	void contextLoads() {
