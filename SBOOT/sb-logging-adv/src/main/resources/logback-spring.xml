@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+<!--    base.xml includes all others configurations including defaults.xml -->
+    <!-- <include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+    <!-- use Spring default values -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <appender name="JSON_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter"/>
+            <timestampFormat>yyyy-MM-dd HH:mm:ss.SSS</timestampFormat>
+            <!--
+            Don't include timestamp since field name conflicts with one from kubernetes.
+            Hint: use `kubectl logs -timestamps` or kibana to see logs with timestamps.
+            -->
+            <includeTimestamp>false</includeTimestamp>
+            <includeContextName>false</includeContextName>
+            <appendLineSeparator>true</appendLineSeparator>
+            <!--
+            Default value is TRUE
+            <includeMDC>true</includeMDC>
+            -->
+        </layout>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="MESSAGES_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M\(%line\) - MDC:messageId=%X{MESSAGE_ID} - %msg%n
+            </pattern>
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M\(%line\)-->
+<!--                MDC:gateId=%X{MESSAGE_ID},obid=%X{OBJECT_ID},prodMdmId=%X{MDM_PROD_ID},seasMdmId=%X{MDM_SEASON_ID},logEntryId=%X{LOG_ENTRY_ID}-->
+<!--                - -->
+<!--                %msg%n-->
+<!--            </pattern>-->
+            <!--            <Pattern> %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable </Pattern>-->
+            <!--            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>-->
+        </layout>
+    </appender>
+
+    <!--    <root level="info">-->
+    <!--        <appender-ref ref="JSON_STDOUT"/>-->
+    <!--    </root>-->
+
+    <!-- LOG "com.baeldung*" at TRACE level -->
+    <logger name="com.example.service" level="debug" additivity="false">
+        <appender-ref ref="JSON_STDOUT"/>
+    </logger>
+
+    <logger name="com.example.outbox" level="trace" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="com.example.inbox" level="trace" additivity="false">
+        <appender-ref ref="MESSAGES_STDOUT"/>
+    </logger>
+
+</configuration>

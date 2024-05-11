@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: sb-logging-adv
+logging:
+  level:
+    root: trace
