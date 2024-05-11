@@ -33,10 +33,10 @@ public class JpaLinksApplication implements CommandLineRunner {
         allDeps.forEach(dep -> System.out.println("Dep id is: " + dep.getId() + ", name is: " + dep.getName()));
         secondaryDepartment.setParentDepartment(mainDepartment);
         secondaryDepartment = departmentRepository.save(secondaryDepartment);
-        System.out.println("Sec dep has parent dep with name: " + secondaryDepartment.getParentDepartment().getName());
+//        System.out.println("Sec dep has parent dep with name: " + secondaryDepartment.getParentDepartment().getName());
         Department found = departmentRepository.findById(secondaryDepartment.getId())
                 .orElseThrow(EntityNotFoundException::new);
-        System.out.println("Found dep with name: " + found.getName());
+//        System.out.println("Found dep with name: " + found.getName());
     }
 
     public static void main(String[] args) {

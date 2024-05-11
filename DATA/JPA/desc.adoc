@@ -1,3 +1,9 @@
-sboot-jpa-extended
+== sboot-jpa-extended
 started, but not finished
 Empty DomainEvent and TestEventHandler with @TransactionalEventListener (it is also empty)
+
+== sboot-jpa-links-study
+LaziInitializationException
+see https://www.baeldung.com/hibernate-initialize-proxy-exception
+Hibernate could not initialize proxy – no Session
+
