@@ -1,6 +1,5 @@
 package sb.jdbc.audited;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,15 +9,15 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class MyUserRepositoryTest {
 
-    @Autowired MyUserRepository myUserRepository;
+    @Autowired
+    MyUserRepository myUserRepository;
 
     @Test
-    void test(){
+    void test() {
 
         MyUser sergey = new MyUser("Sergey");
         MyUser savedSergey = myUserRepository.save(sergey);
@@ -51,6 +50,16 @@ class MyUserRepositoryTest {
         foundUsers.clear();
         foundDeleted.iterator().forEachRemaining(foundUsers::add);
         assertThat(foundUsers).hasSize(2);
+
+        foundAll = myUserRepository.findAll();
+        foundUsers.clear();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
+        Iterable<MyUser> foundActive = myUserRepository.findByDeletedFalse();
+        foundUsers.clear();
+        foundActive.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).isEmpty();
     }
 
 }

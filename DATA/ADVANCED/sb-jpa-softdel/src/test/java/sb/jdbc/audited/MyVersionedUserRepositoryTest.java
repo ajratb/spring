@@ -52,6 +52,15 @@ class MyVersionedUserRepositoryTest {
         foundDeleted.iterator().forEachRemaining(foundUsers::add);
         assertThat(foundUsers).hasSize(2);
 
+        foundAll = myUserRepository.findAll();
+        foundUsers.clear();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
+        Iterable<MyVersionedUser> foundActive = myUserRepository.findByDeletedFalse();
+        foundUsers.clear();
+        foundActive.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).isEmpty();
     }
 
 }
