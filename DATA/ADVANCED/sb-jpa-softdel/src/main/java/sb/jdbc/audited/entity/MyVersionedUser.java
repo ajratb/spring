@@ -1,6 +1,7 @@
 package sb.jdbc.audited.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
@@ -11,18 +12,12 @@ import org.hibernate.annotations.SQLDelete;
 @Entity
 @SQLDelete(sql = "UPDATE my_versioned_user SET deleted = true, version = version + 1 WHERE id=? and version=?")
 //@SQLRestriction("deleted=false")
-public class MyVersionedUser {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+public class MyVersionedUser extends BaseEntity {
 
     @Version
     Integer version;
 
     String name;
-
-    boolean deleted = Boolean.FALSE;
 
     public MyVersionedUser() {
     }
