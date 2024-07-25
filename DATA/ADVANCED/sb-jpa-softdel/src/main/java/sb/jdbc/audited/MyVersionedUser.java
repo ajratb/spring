@@ -9,7 +9,7 @@ import org.hibernate.annotations.SQLDelete;
 @Setter
 @Getter
 @Entity
-@SQLDelete(sql = "UPDATE my_user SET deleted = true WHERE id=? and version=?")
+@SQLDelete(sql = "UPDATE my_versioned_user SET deleted = true, version = version + 1 WHERE id=? and version=?")
 //@SQLRestriction("deleted=false")
 public class MyVersionedUser {
 

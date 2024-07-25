@@ -13,30 +13,45 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class MyVersionedUserRepositoryTest {
 
-    @Autowired MyVersionedUserRepository myUserRepository;
+    @Autowired
+    MyVersionedUserRepository myUserRepository;
 
     @Test
-    void test(){
+    void test() {
+
         MyVersionedUser sergey = new MyVersionedUser("Sergey");
         MyVersionedUser savedSergey = myUserRepository.save(sergey);
         assertThat(savedSergey).isNotNull();
+
         MyVersionedUser vasya = new MyVersionedUser("Vasya");
         MyVersionedUser savedVasya = myUserRepository.save(vasya);
-        Iterable<MyVersionedUser> all = myUserRepository.findAll();
-        List<MyVersionedUser> allUsers = new ArrayList<>();
-        all.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).hasSize(2);
+
+        Iterable<MyVersionedUser> foundAll = myUserRepository.findAll();
+        List<MyVersionedUser> foundUsers = new ArrayList<>();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
+        // PREFER THIS WAY !
         myUserRepository.delete(savedSergey);
-        all = myUserRepository.findAll();
-        allUsers.clear();
-        all.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).hasSize(2);
+
         Optional<MyVersionedUser> foundSergey = myUserRepository.findById(savedSergey.getId());
         assertThat(foundSergey.isPresent()).isTrue();
-        Iterable<MyVersionedUser> byIdAndDeletedTrue = myUserRepository.findByDeletedTrue();
-        allUsers.clear();
-        byIdAndDeletedTrue.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).isNotNull();
+
+        foundAll = myUserRepository.findAll();
+        foundUsers.clear();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
+//        savedVasya.setVersion(5); - OptimisticLockException
+        savedVasya.setDeleted(true);
+        MyVersionedUser updatedVasya = myUserRepository.save(savedVasya);
+        assertThat(updatedVasya).isNotNull();
+
+        Iterable<MyVersionedUser> foundDeleted = myUserRepository.findByDeletedTrue();
+        foundUsers.clear();
+        foundDeleted.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
     }
 
 }
