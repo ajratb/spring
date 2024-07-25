@@ -1,4 +1,4 @@
-package sb.jdbc.audited;
+package sb.jdbc.audited.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
