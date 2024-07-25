@@ -19,26 +19,38 @@ class MyUserRepositoryTest {
 
     @Test
     void test(){
+
         MyUser sergey = new MyUser("Sergey");
         MyUser savedSergey = myUserRepository.save(sergey);
         assertThat(savedSergey).isNotNull();
+
         MyUser vasya = new MyUser("Vasya");
         MyUser savedVasya = myUserRepository.save(vasya);
-        Iterable<MyUser> all = myUserRepository.findAll();
-        List<MyUser> allUsers = new ArrayList<>();
-        all.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).hasSize(2);
+
+        Iterable<MyUser> foundAll = myUserRepository.findAll();
+        List<MyUser> foundUsers = new ArrayList<>();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
         myUserRepository.delete(savedSergey);
-        all = myUserRepository.findAll();
-        allUsers.clear();
-        all.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).hasSize(1);
+
         Optional<MyUser> foundSergey = myUserRepository.findById(savedSergey.getId());
-        assertThat(foundSergey.isPresent()).isFalse();
-        Iterable<MyUser> byIdAndDeletedTrue = myUserRepository.findByOrDeletedTrue();
-        allUsers.clear();
-        byIdAndDeletedTrue.iterator().forEachRemaining(allUsers::add);
-        assertThat(allUsers).isNotNull();
+        assertThat(foundSergey.isPresent()).isTrue();
+
+        foundAll = myUserRepository.findAll();
+        foundUsers.clear();
+        foundAll.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
+
+        savedVasya.setVersion(5);
+        savedVasya.setDeleted(true);
+        MyUser updatedVasya = myUserRepository.save(savedVasya);
+        assertThat(updatedVasya).isNotNull();
+
+        Iterable<MyUser> foundDeleted = myUserRepository.findByDeletedTrue();
+        foundUsers.clear();
+        foundDeleted.iterator().forEachRemaining(foundUsers::add);
+        assertThat(foundUsers).hasSize(2);
     }
 
 }
