@@ -1,12 +1,8 @@
 package sb.jdbc.audited.repo;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.domain.Specification;
 import sb.jdbc.audited.entity.MyVersionedUser;
 
 import java.util.ArrayList;
@@ -20,49 +16,6 @@ class MyVersionedUserRepositoryTest {
 
     @Autowired
     MyVersionedUserRepository myUserRepository;
-
-    @Test
-    void testFindAllWithSpec() {
-
-        MyVersionedUser sergey = new MyVersionedUser("Sergey");
-        MyVersionedUser savedSergey = myUserRepository.save(sergey);
-        assertThat(savedSergey).isNotNull();
-
-        MyVersionedUser vasya = new MyVersionedUser("Vasya");
-        MyVersionedUser savedVasya = myUserRepository.save(vasya);
-
-        List<Predicate> predicates = new ArrayList<>();
-        String nameValue = "*s";
-        Specification<MyVersionedUser> spec = (root, query, builder) -> {
-            predicates.add(getPredicateForUserAttr(builder, root, "name", nameValue));
-            predicates.add(getBoolPredicateForUserAttr(builder, root, "deleted", true));
-            return builder.and(predicates.toArray(new Predicate[0]));
-        };
-
-        myUserRepository.delete(savedVasya);
-        List<MyVersionedUser> allFound = myUserRepository.findAll(spec);
-        assertThat(allFound).isNotEmpty();
-    }
-
-    private Predicate getPredicateForUserAttr(CriteriaBuilder builder, Root<MyVersionedUser> root, String attr, String value) {
-
-        String startSymbol = "";
-        if(value == null) value = "";
-        if (value.startsWith("*")) {
-            value = value.substring(1);
-            startSymbol = "%";
-        }
-
-        return builder.like(
-                builder.lower(root.<String>get(attr)),
-                startSymbol + value.toLowerCase() + "%");
-    }
-
-    private Predicate getBoolPredicateForUserAttr(CriteriaBuilder builder, Root<MyVersionedUser> root, String attr, Boolean value) {
-
-        return builder.equal(root.<String>get(attr), value);
-    }
-
 
     @Test
     void test() {
