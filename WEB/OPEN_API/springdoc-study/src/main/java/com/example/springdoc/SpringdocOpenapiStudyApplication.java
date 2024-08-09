@@ -1,4 +1,4 @@
-package com.example.springdocstudy;
+package com.example.springdoc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
