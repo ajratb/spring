@@ -10,6 +10,5 @@ public class TokenUserDetailsServiceImpl implements TokenUserDetailsService {
         UserDetailsImpl details = new UserDetailsImpl();
         //fillUserFromToken(details, jwt);
         return details;
-
     }
 }
