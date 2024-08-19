@@ -27,6 +27,12 @@ public class PredicateUtils {
         return builder.equal(root.<String>get(attr), value);
     }
 
+    public static Predicate getEqualsPredicateForAttr(
+            CriteriaBuilder builder, Root<?> root, String attr, Object value) {
+
+        return builder.equal(root.<String>get(attr), value);
+    }
+
     @SuppressWarnings("RedundantTypeArguments")
     private Predicate getPredicateForPersonAttr(
             CriteriaBuilder builder, Root<?> root, String attr, String value) {
