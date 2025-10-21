@@ -6,10 +6,15 @@ plugins {
 
 group = 'ru.wts'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'//'1.8'
+//sourceCompatibility = '11'//'1.8'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 repositories {
-	mavenLocal()
 	mavenCentral()
 }
 
@@ -23,7 +28,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-test {
-	useJUnitPlatform()
-	testLogging.showStandardStreams = true
+tasks.named('test') {
+    useJUnitPlatform()
 }
+
+
+//test {
+//	useJUnitPlatform()
+//	testLogging.showStandardStreams = true
+//}
