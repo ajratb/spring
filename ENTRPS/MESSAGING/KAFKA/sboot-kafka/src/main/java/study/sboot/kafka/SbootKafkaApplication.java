@@ -18,7 +18,6 @@ import java.time.format.DateTimeFormatter;
 /**
  * From Spring for Apache Kafka / Introduction / Quick Tour
  * (<a href="https://docs.spring.io/spring-kafka/reference/quick-tour.html">Quick Tour</a>)
- *
  */
 
 @EnableScheduling
