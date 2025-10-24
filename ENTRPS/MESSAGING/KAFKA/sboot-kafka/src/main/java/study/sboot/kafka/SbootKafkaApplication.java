@@ -1,7 +1,7 @@
 package study.sboot.kafka;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -22,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 @EnableScheduling
 @SpringBootApplication
+@RequiredArgsConstructor
 public class SbootKafkaApplication {
 
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class SbootKafkaApplication {
         System.out.println(in);
     }
 
-    @Autowired KafkaTemplate<String, String> template;
+    private final KafkaTemplate<String, String> template;
     @Scheduled(fixedDelay = 3000)
     public void send(){
 //        System.out.println("test");
